@@ -1,0 +1,1486 @@
+<!doctype html><html><head><meta charset=utf8><meta name=viewport content="width=device-width,initial-scale=1,viewport-fit=cover"><style>:root{color-scheme:light;box-sizing:border-box;padding-top:env(safe-area-inset-top,0px);padding-bottom:env(safe-area-inset-bottom,0px)}html{scroll-padding-top:env(safe-area-inset-top,0px)}body{margin:0;padding:0;font:14px -apple-system,BlinkMacSystemFont,sans-serif;background:#fff;color:#000}img{max-width:100%}[hidden]:not([hidden=until-found i]){display:none!important}</style></head><body>
+<title>نبراس</title>
+<meta name="claude:viewport-fit-sides" content="cover">
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Aref+Ruqaa:wght@400;700&family=Markazi+Text:wght@500;600;700&family=IBM+Plex+Sans+Arabic:wght@400;500;600&family=Amiri:wght@400;700&family=Lalezar&family=Cinzel:wght@600;700&family=Cormorant+Garamond:ital,wght@0,500;0,600;0,700;1,600&family=Nunito+Sans:wght@400;600;700&display=swap">
+<style id="st-ar" media="all">
+/* Layout: RTL. Full-bleed teal hero with an eight-pointed-star lattice, cream reading sections, gold used only for ornament and emphasis. */
+:root{
+  direction:rtl;
+  --bg:#f7f2e7; --surface:#fffdf8; --fg:#17302f; --muted:#51655f; --line:#e2d8bf;
+  --brand:#0b4a47; --brand-fg:#f7f2e7; --gold:#b98a2e; --gold-soft:#f2e4bf;
+  --hero:#0b3d3b; --hero-2:#0e5a55; --hero-fg:#f7f2e7; --hero-muted:#bcd5d0; --hero-gold:#e3b95a;
+  --card-shadow:0 10px 30px -14px rgba(11,61,59,.35);
+  --f-brand:'Aref Ruqaa','Amiri',serif;
+  --f-head:'El Messiri','Cairo',system-ui,sans-serif;
+  --f-body:'Cairo','Noto Sans Arabic',Tahoma,system-ui,sans-serif;
+  --f-text:'Amiri','Noto Naskh Arabic',serif;
+  --lattice:url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='88' height='88' viewBox='0 0 88 88'%3E%3Cg fill='none' stroke='%23e3b95a' stroke-opacity='.2' stroke-width='1.2'%3E%3Crect x='22' y='22' width='44' height='44'/%3E%3Crect x='22' y='22' width='44' height='44' transform='rotate(45 44 44)'/%3E%3Ccircle cx='44' cy='44' r='10'/%3E%3C/g%3E%3C/svg%3E");
+}
+@media (prefers-color-scheme: dark){:root:not([data-theme="light"]){
+  --bg:#0c1716; --surface:#13221f; --fg:#efe9d8; --muted:#a8bab4; --line:#26403b;
+  --brand:#e3b95a; --brand-fg:#0c1716; --gold:#e3b95a; --gold-soft:#2a2818;
+  --hero:#06201f; --hero-2:#0a3532; --card-shadow:0 10px 30px -14px rgba(0,0,0,.7); color-scheme:dark}}
+:root[data-theme="dark"]{
+  --bg:#0c1716; --surface:#13221f; --fg:#efe9d8; --muted:#a8bab4; --line:#26403b;
+  --brand:#e3b95a; --brand-fg:#0c1716; --gold:#e3b95a; --gold-soft:#2a2818;
+  --hero:#06201f; --hero-2:#0a3532; --card-shadow:0 10px 30px -14px rgba(0,0,0,.7); color-scheme:dark}
+
+*{box-sizing:border-box}
+body{margin:0;background:var(--bg);color:var(--fg);font-family:var(--f-body);font-size:17px;line-height:1.9;direction:rtl;text-align:start}
+a{color:inherit}
+:focus-visible{outline:3px solid var(--gold);outline-offset:3px;border-radius:6px}
+.wrap{max-width:1080px;margin-inline:auto;padding-left:max(16px,env(safe-area-inset-left,0px));padding-right:max(16px,env(safe-area-inset-right,0px))}
+h1,h2,h3{font-family:var(--f-head);font-weight:700;line-height:1.4;text-wrap:balance;margin:0}
+h2{font-size:clamp(1.8rem,5vw,2.6rem)}
+h3{font-size:1.25rem}
+p{margin:0}
+.eyebrow{font-family:var(--f-head);font-weight:600;font-size:1rem;color:var(--gold);display:flex;align-items:center;gap:10px}
+.eyebrow::before{content:"";width:22px;height:22px;background:currentColor;clip-path:polygon(50% 0,62% 21%,85% 15%,79% 38%,100% 50%,79% 62%,85% 85%,62% 79%,50% 100%,38% 79%,15% 85%,21% 62%,0 50%,21% 38%,15% 15%,38% 21%)}
+
+/* header */
+body::before{content:"";position:fixed;inset:0 0 auto;height:env(safe-area-inset-top,0px);z-index:10;background:var(--hero)}
+header.top{position:sticky;top:env(safe-area-inset-top,0px);z-index:5;background:var(--hero);color:var(--hero-fg);border-bottom:1px solid rgba(227,185,90,.25)}
+.nav{display:flex;align-items:center;justify-content:space-between;gap:16px;padding-block:8px}
+.brand{font-family:var(--f-brand);font-size:2rem;line-height:1.3;color:var(--hero-gold);text-decoration:none;display:flex;align-items:center;gap:10px}
+.brand svg{width:26px;height:26px}
+.nav ul{display:flex;gap:26px;list-style:none;margin:0;padding:0;font-family:var(--f-head);font-weight:500}
+.nav a.l{text-decoration:none;color:var(--hero-muted);transition:color .2s}
+.nav a.l:hover{color:var(--hero-gold)}
+@media (max-width:760px){.nav ul{display:none}}
+
+/* hero */
+.heroband{background:radial-gradient(900px 420px at 15% 0%,var(--hero-2),transparent 70%),var(--lattice),var(--hero);color:var(--hero-fg);position:relative;overflow:hidden}
+.hero{padding-block:clamp(48px,9vw,110px)}
+.hero .grid{display:grid;grid-template-columns:1.2fr 1fr;gap:48px;align-items:center}
+@media (max-width:860px){.hero .grid{grid-template-columns:1fr;gap:36px}}
+.hero .eyebrow{color:var(--hero-gold)}
+.hero h1{font-family:var(--f-brand);font-weight:700;font-size:clamp(2.6rem,8.5vw,5rem);line-height:1.45;margin-top:12px}
+.hero h1 em{font-style:normal;color:var(--hero-gold)}
+.hero .lead{margin-top:20px;font-size:1.2rem;color:var(--hero-muted);max-width:32em}
+.cta{display:flex;flex-wrap:wrap;gap:12px;margin-top:30px}
+.btn{display:inline-block;font:inherit;font-family:var(--f-head);font-weight:600;font-size:1.05rem;padding:12px 28px;border-radius:999px;border:2px solid var(--brand);background:var(--brand);color:var(--brand-fg);text-decoration:none;cursor:pointer;transition:transform .2s,box-shadow .2s}
+.btn:hover{transform:translateY(-2px);box-shadow:var(--card-shadow)}
+.btn.gold{background:var(--hero-gold);border-color:var(--hero-gold);color:#0b3d3b}
+.btn.line{background:transparent;color:var(--hero-fg);border-color:rgba(247,242,231,.5)}
+.btn.ghost{background:transparent;color:var(--brand)}
+
+.shahada{position:relative;background:var(--surface);color:var(--fg);border-radius:28px;padding:34px 24px 28px;text-align:center;box-shadow:0 24px 60px -24px rgba(0,0,0,.55);outline:1.5px solid var(--hero-gold);outline-offset:-10px}
+.shahada .ar{font-family:var(--f-text);font-weight:700;font-size:clamp(1.6rem,5vw,2.2rem);line-height:2.1;color:var(--brand)}
+.shahada small{display:block;margin-top:14px;color:var(--muted);font-size:.92rem;line-height:1.8;padding-inline:8px}
+.shahada .star{display:block;margin:0 auto 6px;width:34px;height:34px;background:var(--gold);clip-path:polygon(50% 0,62% 21%,85% 15%,79% 38%,100% 50%,79% 62%,85% 85%,62% 79%,50% 100%,38% 79%,15% 85%,21% 62%,0 50%,21% 38%,15% 15%,38% 21%)}
+
+section{padding-block:clamp(48px,8vw,88px)}
+.head{max-width:40em;margin-bottom:36px;display:grid;gap:12px}
+.head p{color:var(--muted);font-size:1.05rem}
+
+/* pillars */
+.pillars{display:grid;grid-template-columns:repeat(auto-fit,minmax(min(100%,310px),1fr));gap:20px}
+.pillar{background:var(--surface);border:1px solid var(--line);border-radius:20px;padding:26px 24px;display:grid;gap:10px;align-content:start;min-width:0;box-shadow:var(--card-shadow);transition:transform .25s}
+.pillar:hover{transform:translateY(-4px)}
+.pillar .badge{width:52px;height:52px;display:grid;place-items:center;position:relative;color:#0b3d3b;font-family:var(--f-head);font-weight:700;font-size:1.2rem}
+.pillar .badge::before,.pillar .badge::after{content:"";position:absolute;inset:6px;background:var(--gold);border-radius:4px;z-index:0}
+.pillar .badge::after{transform:rotate(45deg)}
+.pillar .badge span{position:relative;z-index:1}
+.pillar .ar{font-family:var(--f-brand);font-size:1.9rem;line-height:1.4;color:var(--brand)}
+.pillar h3{font-size:1.05rem;color:var(--fg)}
+.pillar p{color:var(--muted);font-size:.98rem;line-height:1.85}
+
+/* prayer band */
+.band{background:var(--lattice),var(--hero);color:var(--hero-fg)}
+.band .head p{color:var(--hero-muted)}
+.band .eyebrow{color:var(--hero-gold)}
+.table-wrap{overflow-x:auto;border-radius:20px;border:1px solid rgba(227,185,90,.35);background:rgba(6,32,31,.55)}
+table{border-collapse:collapse;width:100%;min-width:500px;font-variant-numeric:tabular-nums}
+th,td{padding:14px 20px;text-align:start;border-bottom:1px solid rgba(247,242,231,.12)}
+th{font-family:var(--f-head);font-size:.9rem;color:var(--hero-gold);font-weight:600}
+tr:last-child td{border-bottom:0}
+td.n{font-family:var(--f-brand);font-size:1.6rem;color:var(--hero-gold);line-height:1.4}
+td.r{font-family:var(--f-head);font-size:1.3rem;font-weight:700}
+.note{margin-top:16px;color:var(--hero-muted);font-size:.98rem}
+
+/* steps */
+.steps{list-style:none;margin:0;padding:0;max-width:46em;position:relative}
+.steps li{display:grid;grid-template-columns:52px 1fr;gap:20px;padding-bottom:30px;position:relative}
+.steps li:last-child{padding-bottom:0}
+.steps li:not(:last-child)::before{content:"";position:absolute;inset-inline-start:25px;top:52px;bottom:0;border-inline-start:2px dashed var(--line)}
+.steps .no{width:52px;height:52px;border-radius:50%;background:var(--brand);color:var(--brand-fg);font-family:var(--f-head);font-weight:700;display:grid;place-items:center;font-size:1.3rem;box-shadow:0 0 0 6px var(--gold-soft)}
+.steps h3{margin-bottom:2px}
+.steps p{color:var(--muted)}
+
+.langs{display:flex;flex-wrap:wrap;gap:10px}
+.chip{border:1px solid var(--line);background:var(--surface);border-radius:999px;padding:6px 20px;font-family:var(--f-head);font-weight:500}
+.chip.on{background:var(--brand);color:var(--brand-fg);border-color:var(--brand)}
+.chip.soon{color:var(--muted);border-style:dashed}
+
+/* faq */
+details{background:var(--surface);border:1px solid var(--line);border-radius:16px;padding:0 22px;transition:box-shadow .2s}
+details[open]{box-shadow:var(--card-shadow);border-color:var(--gold)}
+details+details{margin-top:12px}
+summary{cursor:pointer;padding:18px 0;font-family:var(--f-head);font-weight:600;font-size:1.1rem;list-style:none;display:flex;justify-content:space-between;align-items:center;gap:16px}
+summary::-webkit-details-marker{display:none}
+summary::after{content:"+";flex:none;width:30px;height:30px;border-radius:50%;background:var(--gold-soft);color:var(--gold);display:grid;place-items:center;font-size:1.3rem;line-height:1}
+details[open] summary::after{content:"−"}
+details p{padding-bottom:20px;color:var(--muted)}
+
+.yt{display:grid;grid-template-columns:repeat(auto-fit,minmax(min(100%,300px),1fr));gap:18px}
+.yt a{display:grid;gap:10px;background:var(--surface);border:1px solid var(--line);border-radius:20px;padding:22px;text-decoration:none;box-shadow:var(--card-shadow);transition:transform .25s;min-width:0}
+.yt a:hover{transform:translateY(-4px)}
+.yt .play{width:54px;height:38px;border-radius:12px;background:var(--brand);color:var(--brand-fg);display:grid;place-items:center}
+.yt .play svg{width:16px;height:16px}
+.yt b{font-family:var(--f-head);font-size:1.15rem;color:var(--fg);direction:ltr;text-align:start;unicode-bidi:embed}
+.yt .subbtn{display:inline-flex;align-items:center;justify-content:center;gap:10px;background:#e50000;color:#fff;font-family:var(--f-head);font-weight:700;font-size:1.05rem;padding:10px 22px;border-radius:999px;transition:background .2s}
+.yt a:hover .subbtn{background:#c40000}
+.yt .subbtn svg{width:28px;height:20px;flex:none}
+.yt span.s{color:var(--gold);font-family:var(--f-head);font-weight:600}
+.yt .cover{position:relative;display:block;width:100%;aspect-ratio:16/9;border-radius:14px;overflow:hidden;background:#0b3d3b}
+.yt .cover img{display:block;width:100%;height:100%;object-fit:cover}
+.yt .ov{position:absolute;inset:0;display:grid;direction:rtl;align-content:start;justify-items:start;gap:0;padding:10px 14px 24px;text-align:start;background:linear-gradient(to bottom,rgba(6,24,23,.75),rgba(6,24,23,.1) 50%,transparent)}
+.yt .nm{font-family:var(--f-brand);font-weight:700;font-size:clamp(1.15rem,3.8vw,1.55rem);color:#f6e3ad;text-shadow:0 2px 10px rgba(0,0,0,.7);line-height:1.4;direction:rtl}
+.yt .hd{font-family:var(--f-head);font-size:.72rem;color:#fff3d6;opacity:.9;direction:ltr;letter-spacing:.04em}
+.yt .row{display:flex;align-items:center;gap:12px;min-width:0}
+/* ask */
+.ask{display:grid;grid-template-columns:1.1fr 1fr;gap:32px;align-items:start}
+@media (max-width:860px){.ask{grid-template-columns:1fr}}
+form{display:grid;gap:14px;background:var(--surface);border:1px solid var(--line);border-radius:24px;padding:26px;box-shadow:var(--card-shadow)}
+label{display:grid;gap:6px;font-family:var(--f-head);font-weight:600}
+input,textarea{font:inherit;font-family:var(--f-body);color:var(--fg);background:var(--bg);border:1.5px solid var(--line);border-radius:12px;padding:11px 14px;width:100%;direction:rtl}
+input:focus,textarea:focus{border-color:var(--gold);outline:none}
+textarea{min-height:130px;resize:vertical}
+.out{display:none;gap:12px;background:var(--gold-soft);border-radius:16px;padding:16px}
+.out.on{display:grid}
+.out pre{white-space:pre-wrap;margin:0;font:inherit;user-select:all}
+.contact{display:grid;gap:14px}
+.contact .box{background:var(--surface);border:1px solid var(--line);border-radius:16px;padding:18px 20px}
+.contact b{display:block;font-family:var(--f-head);font-size:.95rem;color:var(--gold);font-weight:600}
+.ltr{direction:ltr;unicode-bidi:embed;display:inline-block;user-select:all;font-weight:600;font-size:1.1rem}
+.todo{color:var(--muted);font-size:.85rem}
+
+footer{background:var(--hero);color:var(--hero-muted);padding-block:36px;font-size:.95rem}
+footer .wrap{display:grid;gap:8px}
+footer strong{font-family:var(--f-brand);color:var(--hero-gold);font-size:1.8rem;font-weight:700;line-height:1.3}
+@media (prefers-reduced-motion:reduce){*{transition:none!important}}
+/* ===== v2: refined palette + type ===== */
+table,td{color:var(--hero-fg);font-size:inherit}
+td:not(.n):not(.r){color:var(--hero-muted)}
+:root{
+  --bg:#faf6ec; --surface:#ffffff; --fg:#10292a; --muted:#4d6361; --line:#e8dfc8;
+  --brand:#0a4744; --brand-fg:#faf6ec; --gold:#8f6612; --gold-soft:#f5e9c8; --gold-bright:#d9ae4e;
+  --hero:#052b2a; --hero-2:#0b514c; --hero-fg:#faf6ec; --hero-muted:#b4d0cb; --hero-gold:#ecc974;
+  --card-shadow:0 20px 44px -24px rgba(5,43,42,.5);
+  --f-brand:'Aref Ruqaa','Amiri',serif;
+  --f-serif:'Markazi Text','Amiri',serif;
+  --f-head:'IBM Plex Sans Arabic','Cairo',system-ui,sans-serif;
+  --f-body:'IBM Plex Sans Arabic','Cairo','Noto Sans Arabic',Tahoma,system-ui,sans-serif;
+  --f-text:'Amiri','Noto Naskh Arabic',serif;
+}
+@media (prefers-color-scheme: dark){:root:not([data-theme="light"]){
+  --bg:#07120f; --surface:#0e1d1a; --fg:#f1ead8; --muted:#a9bcb6; --line:#22393a;
+  --brand:#ecc974; --brand-fg:#07120f; --gold:#ecc974; --gold-soft:#262515; --gold-bright:#ecc974;
+  --hero:#041d1c; --hero-2:#0a3e3a; --card-shadow:0 20px 44px -24px rgba(0,0,0,.85)}}
+:root[data-theme="dark"]{
+  --bg:#07120f; --surface:#0e1d1a; --fg:#f1ead8; --muted:#a9bcb6; --line:#22393a;
+  --brand:#ecc974; --brand-fg:#07120f; --gold:#ecc974; --gold-soft:#262515; --gold-bright:#ecc974;
+  --hero:#041d1c; --hero-2:#0a3e3a; --card-shadow:0 20px 44px -24px rgba(0,0,0,.85)}
+
+body{font-size:17px;line-height:1.95;font-weight:400}
+h1,h2,h3{font-family:var(--f-serif);font-weight:700;letter-spacing:0}
+h2{font-size:clamp(2.3rem,6.2vw,3.4rem);line-height:1.25}
+h3{font-size:1.55rem;line-height:1.3}
+.eyebrow{font-family:var(--f-head);font-weight:600;letter-spacing:.02em;font-size:.95rem}
+.head p{font-size:1.08rem}
+.head h2{position:relative;padding-bottom:16px}
+.head h2::after{content:"";position:absolute;inset-inline-start:0;bottom:0;width:72px;height:3px;border-radius:3px;background:linear-gradient(to left,var(--gold-bright),transparent)}
+
+/* glass header */
+header.top{background:color-mix(in srgb,var(--hero) 84%,transparent);-webkit-backdrop-filter:blur(12px);backdrop-filter:blur(12px)}
+.nav ul{font-weight:500;font-size:.96rem}
+
+/* hero */
+.heroband{background:
+  radial-gradient(700px 420px at 85% 10%,rgba(236,201,116,.16),transparent 70%),
+  radial-gradient(900px 520px at 10% 0%,var(--hero-2),transparent 70%),
+  var(--lattice),var(--hero)}
+.hero{padding-block:clamp(56px,10vw,120px) clamp(64px,10vw,120px)}
+.hero h1{font-family:var(--f-brand);font-size:clamp(2.7rem,8.4vw,5.2rem);line-height:1.5}
+.hero h1 em{background:linear-gradient(100deg,#f6dc98,#d9ae4e);-webkit-background-clip:text;background-clip:text;color:transparent}
+.hero .lead{font-size:1.2rem;line-height:2}
+.btn{font-family:var(--f-head);font-weight:600;font-size:1rem;padding:13px 30px}
+.btn.gold{background:linear-gradient(180deg,#f3d789,#d9ae4e);border-color:#d9ae4e;color:#0a2f2d;box-shadow:0 10px 24px -10px rgba(217,174,78,.7)}
+.btn.line:hover{background:rgba(250,246,236,.08)}
+.heroband::after{content:"";display:block;height:3px;background:linear-gradient(to left,transparent,var(--hero-gold),transparent);opacity:.7}
+
+/* arch card */
+.shahada{border-radius:220px 220px 30px 30px;padding:64px 28px 34px;outline:1px solid var(--hero-gold);outline-offset:-12px;background:linear-gradient(180deg,var(--surface),color-mix(in srgb,var(--surface) 92%,var(--gold-bright)));box-shadow:0 40px 80px -36px rgba(0,0,0,.7),0 0 0 8px rgba(236,201,116,.12)}
+.shahada .star{width:40px;height:40px;background:linear-gradient(135deg,var(--gold-bright),var(--gold));margin-bottom:12px}
+.shahada .ar{font-size:clamp(1.7rem,5vw,2.3rem);line-height:2.15}
+
+/* cards */
+.pillar{position:relative;overflow:hidden;border-radius:22px;box-shadow:var(--card-shadow);padding:28px 26px}
+.pillar::after{content:"";position:absolute;inset-inline-end:-34px;top:-34px;width:150px;height:150px;background:var(--lattice);opacity:.9;pointer-events:none;transform:rotate(12deg)}
+.pillar .badge{width:56px;height:56px}
+.pillar .badge::before,.pillar .badge::after{background:linear-gradient(135deg,var(--gold-bright),var(--gold))}
+.pillar .badge{color:#fff}
+.pillar .ar{font-size:2.1rem}
+.pillar h3{font-family:var(--f-head);font-size:1.02rem;font-weight:600;color:var(--muted)}
+.steps h3,.head h2{font-family:var(--f-serif)}
+.steps h3{font-size:1.5rem}
+.steps .no{background:linear-gradient(135deg,var(--brand),color-mix(in srgb,var(--brand) 70%,#000));}
+summary{font-family:var(--f-head);font-weight:600;font-size:1.08rem}
+details{border-radius:18px}
+details[open]{border-color:var(--gold-bright)}
+.table-wrap{border-radius:22px;box-shadow:0 30px 60px -34px rgba(0,0,0,.7)}
+td.n{font-size:1.9rem}
+form{border-radius:26px}
+.contact .box{border-radius:18px;box-shadow:0 14px 30px -22px rgba(5,43,42,.5)}
+.yt a{border-radius:22px;padding:18px 18px 22px;box-shadow:var(--card-shadow)}
+.yt .cover{border-radius:14px;box-shadow:0 12px 26px -14px rgba(0,0,0,.6)}
+footer{border-top:3px solid transparent;border-image:linear-gradient(to left,transparent,var(--hero-gold),transparent) 1}
+footer strong{font-size:2rem}
+.langbar{background:#031614;color:var(--hero-muted);font-family:var(--f-head);font-size:.85rem;border-bottom:1px solid rgba(236,201,116,.18)}
+.lb{display:flex;align-items:center;gap:14px;padding-block:6px;overflow-x:auto;white-space:nowrap}
+.lb-l{display:inline-flex;align-items:center;gap:6px;color:var(--hero-gold);font-weight:600;flex:none}
+.lb-l svg{width:16px;height:16px}
+.lb ul{display:flex;gap:6px;list-style:none;margin:0;padding:0}
+.lg{display:inline-block;padding:1px 12px;border-radius:999px;border:1px solid transparent;opacity:.6;cursor:default}
+.lg.on{background:var(--hero-gold);color:#0a2f2d;opacity:1;font-weight:600}
+.lb-s{margin-inline-start:auto;opacity:.6;font-size:.78rem;flex:none}
+@media (max-width:600px){.lb-s{display:none}}
+.nav a.l[href="https://edc.org.kw/"]{background:linear-gradient(180deg,#f3d789,#d9ae4e);color:#0a2f2d;font-weight:600;padding:3px 16px;border-radius:999px}
+.nav a.l[href="https://edc.org.kw/"]:hover{color:#0a2f2d;filter:brightness(1.08)}
+.hero h1{font-family:'Lalezar',var(--f-brand);font-weight:400;font-size:clamp(2.6rem,8vw,4.8rem);line-height:1.5;letter-spacing:0}
+a.lg{text-decoration:none;color:inherit;opacity:.9}
+a.lg:hover{opacity:1;border-color:var(--hero-gold)}
+</style>
+<style id="st-ar-quran" media="not all">
+/* Layout: RTL. Teal hero with star lattice, then a searchable grid of the 114 surahs. */
+:root{
+  direction:rtl;
+  --bg:#f7f2e7; --surface:#fffdf8; --fg:#17302f; --muted:#51655f; --line:#e2d8bf;
+  --brand:#0b4a47; --brand-fg:#f7f2e7; --gold:#b98a2e; --gold-soft:#f2e4bf;
+  --hero:#0b3d3b; --hero-2:#0e5a55; --hero-fg:#f7f2e7; --hero-muted:#bcd5d0; --hero-gold:#e3b95a;
+  --mak:#0b4a47; --mad:#9a6b17;
+  --card-shadow:0 10px 30px -14px rgba(11,61,59,.35);
+  --f-brand:'Aref Ruqaa','Amiri',serif; --f-head:'El Messiri','Cairo',system-ui,sans-serif;
+  --f-body:'Cairo','Noto Sans Arabic',Tahoma,system-ui,sans-serif; --f-text:'Amiri','Noto Naskh Arabic',serif;
+  --lattice:url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='88' height='88' viewBox='0 0 88 88'%3E%3Cg fill='none' stroke='%23e3b95a' stroke-opacity='.2' stroke-width='1.2'%3E%3Crect x='22' y='22' width='44' height='44'/%3E%3Crect x='22' y='22' width='44' height='44' transform='rotate(45 44 44)'/%3E%3Ccircle cx='44' cy='44' r='10'/%3E%3C/g%3E%3C/svg%3E");
+}
+@media (prefers-color-scheme: dark){:root:not([data-theme="light"]){
+  --bg:#0c1716; --surface:#13221f; --fg:#efe9d8; --muted:#a8bab4; --line:#26403b;
+  --brand:#e3b95a; --brand-fg:#0c1716; --gold:#e3b95a; --gold-soft:#2a2818;
+  --hero:#06201f; --hero-2:#0a3532; --mak:#7fd0c4; --mad:#e3b95a; --card-shadow:0 10px 30px -14px rgba(0,0,0,.7); color-scheme:dark}}
+:root[data-theme="dark"]{
+  --bg:#0c1716; --surface:#13221f; --fg:#efe9d8; --muted:#a8bab4; --line:#26403b;
+  --brand:#e3b95a; --brand-fg:#0c1716; --gold:#e3b95a; --gold-soft:#2a2818;
+  --hero:#06201f; --hero-2:#0a3532; --mak:#7fd0c4; --mad:#e3b95a; --card-shadow:0 10px 30px -14px rgba(0,0,0,.7); color-scheme:dark}
+*{box-sizing:border-box}
+body{margin:0;background:var(--bg);color:var(--fg);font-family:var(--f-body);font-size:17px;line-height:1.8;direction:rtl}
+a{color:inherit}
+:focus-visible{outline:3px solid var(--gold);outline-offset:3px;border-radius:6px}
+.wrap{max-width:1080px;margin-inline:auto;padding-left:max(16px,env(safe-area-inset-left,0px));padding-right:max(16px,env(safe-area-inset-right,0px))}
+body::before{content:"";position:fixed;inset:0 0 auto;height:env(safe-area-inset-top,0px);z-index:10;background:var(--hero)}
+.heroband{background:radial-gradient(900px 380px at 80% 0%,var(--hero-2),transparent 70%),var(--lattice),var(--hero);color:var(--hero-fg)}
+.navbar{border-bottom:1px solid rgba(227,185,90,.25)}
+.nav{display:flex;align-items:center;justify-content:space-between;gap:16px;padding-block:8px}
+.brand{font-family:var(--f-brand);font-size:2rem;line-height:1.3;color:var(--hero-gold);text-decoration:none;display:flex;align-items:center;gap:10px}
+.brand svg{width:26px;height:26px}
+.nav ul{display:flex;flex-wrap:wrap;gap:8px 22px;list-style:none;margin:0;padding:0;font-family:var(--f-head);font-weight:500;font-size:.98rem}
+.nav a.l{text-decoration:none;color:var(--hero-muted);transition:color .2s}
+.nav a.l:hover,.nav a.l.on{color:var(--hero-gold)}
+.nav a.l.on{border-bottom:2px solid var(--hero-gold)}
+@media (max-width:980px){.nav{flex-direction:column;align-items:flex-start;gap:4px}}
+.hero{padding-block:clamp(44px,8vw,88px) clamp(36px,6vw,60px);display:grid;gap:18px;justify-items:start}
+.crumb{font-family:var(--f-head);color:var(--hero-gold);text-decoration:none;font-weight:600}
+h1{font-family:var(--f-brand);font-weight:700;font-size:clamp(2.6rem,8vw,4.6rem);line-height:1.4;margin:0;color:var(--hero-gold)}
+.lead{max-width:36em;color:var(--hero-muted);font-size:1.15rem;margin:0}
+.stats{display:flex;flex-wrap:wrap;gap:10px;margin-top:6px}
+.stat{border:1px solid rgba(227,185,90,.4);border-radius:999px;padding:4px 18px;font-family:var(--f-head);font-weight:600;font-variant-numeric:tabular-nums}
+.tools{position:sticky;top:env(safe-area-inset-top,0px);z-index:5;background:var(--bg);border-bottom:1px solid var(--line)}
+.tools .wrap{display:flex;flex-wrap:wrap;gap:12px;align-items:center;padding-block:12px}
+.search{flex:1 1 260px;min-width:0;font:inherit;color:var(--fg);background:var(--surface);border:1.5px solid var(--line);border-radius:999px;padding:10px 20px;direction:rtl}
+.search:focus{border-color:var(--gold);outline:none}
+.seg{display:flex;gap:8px;flex-wrap:wrap}
+.seg button{font:inherit;font-family:var(--f-head);font-weight:600;border:1.5px solid var(--line);background:var(--surface);color:var(--fg);padding:6px 18px;border-radius:999px;cursor:pointer}
+.seg button[aria-pressed="true"]{background:var(--brand);color:var(--brand-fg);border-color:var(--brand)}
+main{padding-block:32px 56px}
+.count{color:var(--muted);margin:0 0 18px;font-family:var(--f-head)}
+.grid{list-style:none;margin:0;padding:0;display:grid;grid-template-columns:repeat(auto-fill,minmax(min(100%,250px),1fr));gap:14px}
+.grid a{display:grid;grid-template-columns:48px 1fr;gap:14px;align-items:center;background:var(--surface);border:1px solid var(--line);border-radius:16px;padding:14px 16px;text-decoration:none;transition:transform .2s,box-shadow .2s,border-color .2s;min-width:0}
+.grid a:hover{transform:translateY(-3px);box-shadow:var(--card-shadow);border-color:var(--gold)}
+.no{width:46px;height:46px;display:grid;place-items:center;position:relative;font-family:var(--f-head);font-weight:700;font-variant-numeric:tabular-nums;color:#0b3d3b}
+.no::before,.no::after{content:"";position:absolute;inset:7px;background:var(--gold);border-radius:3px}
+.no::after{transform:rotate(45deg)}
+.no span{position:relative;z-index:1;font-size:.95rem}
+.nm{font-family:var(--f-head);font-weight:700;font-size:1.2rem;line-height:1.4}
+.meta{font-size:.85rem;color:var(--muted);display:flex;gap:8px;align-items:center}
+.tag{font-weight:600}
+.tag.m{color:var(--mak)} .tag.d{color:var(--mad)}
+.empty{display:none;text-align:center;color:var(--muted);padding:40px 0}
+.empty.on{display:block}
+.langs{margin-top:44px;padding:26px;background:var(--surface);border:1px solid var(--line);border-radius:20px}
+.langs h2{font-family:var(--f-head);margin:0 0 6px;font-size:1.4rem}
+.langs p{margin:0 0 14px;color:var(--muted)}
+.chips{display:flex;flex-wrap:wrap;gap:8px}
+.chips span{border:1px solid var(--line);border-radius:999px;padding:2px 14px;font-size:.95rem;background:var(--bg)}
+.note{margin-top:18px;color:var(--muted);font-size:.92rem}
+@media (prefers-reduced-motion:reduce){*{transition:none!important}}
+/* ===== v2: refined palette + type ===== */
+:root{
+  --bg:#faf6ec; --surface:#ffffff; --fg:#10292a; --muted:#4d6361; --line:#e8dfc8;
+  --brand:#0a4744; --brand-fg:#faf6ec; --gold:#8f6612; --gold-soft:#f5e9c8; --gold-bright:#d9ae4e;
+  --hero:#052b2a; --hero-2:#0b514c; --hero-fg:#faf6ec; --hero-muted:#b4d0cb; --hero-gold:#ecc974;
+  --card-shadow:0 20px 44px -24px rgba(5,43,42,.5);
+  --f-brand:'Aref Ruqaa','Amiri',serif;
+  --f-serif:'Markazi Text','Amiri',serif;
+  --f-head:'IBM Plex Sans Arabic','Cairo',system-ui,sans-serif;
+  --f-body:'IBM Plex Sans Arabic','Cairo','Noto Sans Arabic',Tahoma,system-ui,sans-serif;
+  --f-text:'Amiri','Noto Naskh Arabic',serif;
+}
+@media (prefers-color-scheme: dark){:root:not([data-theme="light"]){
+  --bg:#07120f; --surface:#0e1d1a; --fg:#f1ead8; --muted:#a9bcb6; --line:#22393a;
+  --brand:#ecc974; --brand-fg:#07120f; --gold:#ecc974; --gold-soft:#262515; --gold-bright:#ecc974;
+  --hero:#041d1c; --hero-2:#0a3e3a; --card-shadow:0 20px 44px -24px rgba(0,0,0,.85)}}
+:root[data-theme="dark"]{
+  --bg:#07120f; --surface:#0e1d1a; --fg:#f1ead8; --muted:#a9bcb6; --line:#22393a;
+  --brand:#ecc974; --brand-fg:#07120f; --gold:#ecc974; --gold-soft:#262515; --gold-bright:#ecc974;
+  --hero:#041d1c; --hero-2:#0a3e3a; --card-shadow:0 20px 44px -24px rgba(0,0,0,.85)}
+
+body{font-size:17px;line-height:1.95;font-weight:400}
+h1,h2,h3{font-family:var(--f-serif);font-weight:700;letter-spacing:0}
+h2{font-size:clamp(2.3rem,6.2vw,3.4rem);line-height:1.25}
+h3{font-size:1.55rem;line-height:1.3}
+.eyebrow{font-family:var(--f-head);font-weight:600;letter-spacing:.02em;font-size:.95rem}
+.head p{font-size:1.08rem}
+.head h2{position:relative;padding-bottom:16px}
+.head h2::after{content:"";position:absolute;inset-inline-start:0;bottom:0;width:72px;height:3px;border-radius:3px;background:linear-gradient(to left,var(--gold-bright),transparent)}
+
+/* glass header */
+header.top{background:color-mix(in srgb,var(--hero) 84%,transparent);-webkit-backdrop-filter:blur(12px);backdrop-filter:blur(12px)}
+.nav ul{font-weight:500;font-size:.96rem}
+
+/* hero */
+.heroband{background:
+  radial-gradient(700px 420px at 85% 10%,rgba(236,201,116,.16),transparent 70%),
+  radial-gradient(900px 520px at 10% 0%,var(--hero-2),transparent 70%),
+  var(--lattice),var(--hero)}
+.hero{padding-block:clamp(56px,10vw,120px) clamp(64px,10vw,120px)}
+.hero h1{font-family:var(--f-brand);font-size:clamp(2.7rem,8.4vw,5.2rem);line-height:1.5}
+.hero h1 em{background:linear-gradient(100deg,#f6dc98,#d9ae4e);-webkit-background-clip:text;background-clip:text;color:transparent}
+.hero .lead{font-size:1.2rem;line-height:2}
+.btn{font-family:var(--f-head);font-weight:600;font-size:1rem;padding:13px 30px}
+.btn.gold{background:linear-gradient(180deg,#f3d789,#d9ae4e);border-color:#d9ae4e;color:#0a2f2d;box-shadow:0 10px 24px -10px rgba(217,174,78,.7)}
+.btn.line:hover{background:rgba(250,246,236,.08)}
+.heroband::after{content:"";display:block;height:3px;background:linear-gradient(to left,transparent,var(--hero-gold),transparent);opacity:.7}
+
+/* arch card */
+.shahada{border-radius:220px 220px 30px 30px;padding:64px 28px 34px;outline:1px solid var(--hero-gold);outline-offset:-12px;background:linear-gradient(180deg,var(--surface),color-mix(in srgb,var(--surface) 92%,var(--gold-bright)));box-shadow:0 40px 80px -36px rgba(0,0,0,.7),0 0 0 8px rgba(236,201,116,.12)}
+.shahada .star{width:40px;height:40px;background:linear-gradient(135deg,var(--gold-bright),var(--gold));margin-bottom:12px}
+.shahada .ar{font-size:clamp(1.7rem,5vw,2.3rem);line-height:2.15}
+
+/* cards */
+.pillar{position:relative;overflow:hidden;border-radius:22px;box-shadow:var(--card-shadow);padding:28px 26px}
+.pillar::after{content:"";position:absolute;inset-inline-end:-34px;top:-34px;width:150px;height:150px;background:var(--lattice);opacity:.9;pointer-events:none;transform:rotate(12deg)}
+.pillar .badge{width:56px;height:56px}
+.pillar .badge::before,.pillar .badge::after{background:linear-gradient(135deg,var(--gold-bright),var(--gold))}
+.pillar .badge{color:#fff}
+.pillar .ar{font-size:2.1rem}
+.pillar h3{font-family:var(--f-head);font-size:1.02rem;font-weight:600;color:var(--muted)}
+.steps h3,.head h2{font-family:var(--f-serif)}
+.steps h3{font-size:1.5rem}
+.steps .no{background:linear-gradient(135deg,var(--brand),color-mix(in srgb,var(--brand) 70%,#000));}
+summary{font-family:var(--f-head);font-weight:600;font-size:1.08rem}
+details{border-radius:18px}
+details[open]{border-color:var(--gold-bright)}
+.table-wrap{border-radius:22px;box-shadow:0 30px 60px -34px rgba(0,0,0,.7)}
+td.n{font-size:1.9rem}
+form{border-radius:26px}
+.contact .box{border-radius:18px;box-shadow:0 14px 30px -22px rgba(5,43,42,.5)}
+.yt a{border-radius:22px;padding:18px 18px 22px;box-shadow:var(--card-shadow)}
+.yt .cover{border-radius:14px;box-shadow:0 12px 26px -14px rgba(0,0,0,.6)}
+footer{border-top:3px solid transparent;border-image:linear-gradient(to left,transparent,var(--hero-gold),transparent) 1}
+footer strong{font-size:2rem}
+.grid .nm{font-family:var(--f-serif);font-size:1.35rem;font-weight:700;line-height:1.25}
+.grid a{border-radius:18px;padding:16px 18px}
+.no{color:#fff}
+.no::before,.no::after{background:linear-gradient(135deg,var(--gold-bright),var(--gold))}
+.stat{background:rgba(236,201,116,.08)}
+.langs{border-radius:24px}
+.langs h2{font-family:var(--f-serif);font-size:1.9rem}
+.tools{background:color-mix(in srgb,var(--bg) 88%,transparent);-webkit-backdrop-filter:blur(12px);backdrop-filter:blur(12px)}
+.langbar{background:#031614;color:var(--hero-muted);font-family:var(--f-head);font-size:.85rem;border-bottom:1px solid rgba(236,201,116,.18)}
+.lb{display:flex;align-items:center;gap:14px;padding-block:6px;overflow-x:auto;white-space:nowrap}
+.lb-l{display:inline-flex;align-items:center;gap:6px;color:var(--hero-gold);font-weight:600;flex:none}
+.lb-l svg{width:16px;height:16px}
+.lb ul{display:flex;gap:6px;list-style:none;margin:0;padding:0}
+.lg{display:inline-block;padding:1px 12px;border-radius:999px;border:1px solid transparent;opacity:.6;cursor:default}
+.lg.on{background:var(--hero-gold);color:#0a2f2d;opacity:1;font-weight:600}
+.lb-s{margin-inline-start:auto;opacity:.6;font-size:.78rem;flex:none}
+@media (max-width:600px){.lb-s{display:none}}
+.nav a.l[href="https://edc.org.kw/"]{background:linear-gradient(180deg,#f3d789,#d9ae4e);color:#0a2f2d;font-weight:600;padding:3px 16px;border-radius:999px}
+.nav a.l[href="https://edc.org.kw/"]:hover{color:#0a2f2d;filter:brightness(1.08)}
+a.lg{text-decoration:none;color:inherit;opacity:.9}
+a.lg:hover{opacity:1;border-color:var(--hero-gold)}
+</style>
+<style id="st-en" media="not all">
+/* Layout: RTL. Full-bleed teal hero with an eight-pointed-star lattice, cream reading sections, gold used only for ornament and emphasis. */
+:root{
+  direction:rtl;
+  --bg:#f7f2e7; --surface:#fffdf8; --fg:#17302f; --muted:#51655f; --line:#e2d8bf;
+  --brand:#0b4a47; --brand-fg:#f7f2e7; --gold:#b98a2e; --gold-soft:#f2e4bf;
+  --hero:#0b3d3b; --hero-2:#0e5a55; --hero-fg:#f7f2e7; --hero-muted:#bcd5d0; --hero-gold:#e3b95a;
+  --card-shadow:0 10px 30px -14px rgba(11,61,59,.35);
+  --f-brand:'Aref Ruqaa','Amiri',serif;
+  --f-head:'El Messiri','Cairo',system-ui,sans-serif;
+  --f-body:'Cairo','Noto Sans Arabic',Tahoma,system-ui,sans-serif;
+  --f-text:'Amiri','Noto Naskh Arabic',serif;
+  --lattice:url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='88' height='88' viewBox='0 0 88 88'%3E%3Cg fill='none' stroke='%23e3b95a' stroke-opacity='.2' stroke-width='1.2'%3E%3Crect x='22' y='22' width='44' height='44'/%3E%3Crect x='22' y='22' width='44' height='44' transform='rotate(45 44 44)'/%3E%3Ccircle cx='44' cy='44' r='10'/%3E%3C/g%3E%3C/svg%3E");
+}
+@media (prefers-color-scheme: dark){:root:not([data-theme="light"]){
+  --bg:#0c1716; --surface:#13221f; --fg:#efe9d8; --muted:#a8bab4; --line:#26403b;
+  --brand:#e3b95a; --brand-fg:#0c1716; --gold:#e3b95a; --gold-soft:#2a2818;
+  --hero:#06201f; --hero-2:#0a3532; --card-shadow:0 10px 30px -14px rgba(0,0,0,.7); color-scheme:dark}}
+:root[data-theme="dark"]{
+  --bg:#0c1716; --surface:#13221f; --fg:#efe9d8; --muted:#a8bab4; --line:#26403b;
+  --brand:#e3b95a; --brand-fg:#0c1716; --gold:#e3b95a; --gold-soft:#2a2818;
+  --hero:#06201f; --hero-2:#0a3532; --card-shadow:0 10px 30px -14px rgba(0,0,0,.7); color-scheme:dark}
+
+*{box-sizing:border-box}
+body{margin:0;background:var(--bg);color:var(--fg);font-family:var(--f-body);font-size:17px;line-height:1.9;direction:rtl;text-align:start}
+a{color:inherit}
+:focus-visible{outline:3px solid var(--gold);outline-offset:3px;border-radius:6px}
+.wrap{max-width:1080px;margin-inline:auto;padding-left:max(16px,env(safe-area-inset-left,0px));padding-right:max(16px,env(safe-area-inset-right,0px))}
+h1,h2,h3{font-family:var(--f-head);font-weight:700;line-height:1.4;text-wrap:balance;margin:0}
+h2{font-size:clamp(1.8rem,5vw,2.6rem)}
+h3{font-size:1.25rem}
+p{margin:0}
+.eyebrow{font-family:var(--f-head);font-weight:600;font-size:1rem;color:var(--gold);display:flex;align-items:center;gap:10px}
+.eyebrow::before{content:"";width:22px;height:22px;background:currentColor;clip-path:polygon(50% 0,62% 21%,85% 15%,79% 38%,100% 50%,79% 62%,85% 85%,62% 79%,50% 100%,38% 79%,15% 85%,21% 62%,0 50%,21% 38%,15% 15%,38% 21%)}
+
+/* header */
+body::before{content:"";position:fixed;inset:0 0 auto;height:env(safe-area-inset-top,0px);z-index:10;background:var(--hero)}
+header.top{position:sticky;top:env(safe-area-inset-top,0px);z-index:5;background:var(--hero);color:var(--hero-fg);border-bottom:1px solid rgba(227,185,90,.25)}
+.nav{display:flex;align-items:center;justify-content:space-between;gap:16px;padding-block:8px}
+.brand{font-family:var(--f-brand);font-size:2rem;line-height:1.3;color:var(--hero-gold);text-decoration:none;display:flex;align-items:center;gap:10px}
+.brand svg{width:26px;height:26px}
+.nav ul{display:flex;gap:26px;list-style:none;margin:0;padding:0;font-family:var(--f-head);font-weight:500}
+.nav a.l{text-decoration:none;color:var(--hero-muted);transition:color .2s}
+.nav a.l:hover{color:var(--hero-gold)}
+@media (max-width:760px){.nav ul{display:none}}
+
+/* hero */
+.heroband{background:radial-gradient(900px 420px at 15% 0%,var(--hero-2),transparent 70%),var(--lattice),var(--hero);color:var(--hero-fg);position:relative;overflow:hidden}
+.hero{padding-block:clamp(48px,9vw,110px)}
+.hero .grid{display:grid;grid-template-columns:1.2fr 1fr;gap:48px;align-items:center}
+@media (max-width:860px){.hero .grid{grid-template-columns:1fr;gap:36px}}
+.hero .eyebrow{color:var(--hero-gold)}
+.hero h1{font-family:var(--f-brand);font-weight:700;font-size:clamp(2.6rem,8.5vw,5rem);line-height:1.45;margin-top:12px}
+.hero h1 em{font-style:normal;color:var(--hero-gold)}
+.hero .lead{margin-top:20px;font-size:1.2rem;color:var(--hero-muted);max-width:32em}
+.cta{display:flex;flex-wrap:wrap;gap:12px;margin-top:30px}
+.btn{display:inline-block;font:inherit;font-family:var(--f-head);font-weight:600;font-size:1.05rem;padding:12px 28px;border-radius:999px;border:2px solid var(--brand);background:var(--brand);color:var(--brand-fg);text-decoration:none;cursor:pointer;transition:transform .2s,box-shadow .2s}
+.btn:hover{transform:translateY(-2px);box-shadow:var(--card-shadow)}
+.btn.gold{background:var(--hero-gold);border-color:var(--hero-gold);color:#0b3d3b}
+.btn.line{background:transparent;color:var(--hero-fg);border-color:rgba(247,242,231,.5)}
+.btn.ghost{background:transparent;color:var(--brand)}
+
+.shahada{position:relative;background:var(--surface);color:var(--fg);border-radius:28px;padding:34px 24px 28px;text-align:center;box-shadow:0 24px 60px -24px rgba(0,0,0,.55);outline:1.5px solid var(--hero-gold);outline-offset:-10px}
+.shahada .ar{font-family:var(--f-text);font-weight:700;font-size:clamp(1.6rem,5vw,2.2rem);line-height:2.1;color:var(--brand)}
+.shahada small{display:block;margin-top:14px;color:var(--muted);font-size:.92rem;line-height:1.8;padding-inline:8px}
+.shahada .star{display:block;margin:0 auto 6px;width:34px;height:34px;background:var(--gold);clip-path:polygon(50% 0,62% 21%,85% 15%,79% 38%,100% 50%,79% 62%,85% 85%,62% 79%,50% 100%,38% 79%,15% 85%,21% 62%,0 50%,21% 38%,15% 15%,38% 21%)}
+
+section{padding-block:clamp(48px,8vw,88px)}
+.head{max-width:40em;margin-bottom:36px;display:grid;gap:12px}
+.head p{color:var(--muted);font-size:1.05rem}
+
+/* pillars */
+.pillars{display:grid;grid-template-columns:repeat(auto-fit,minmax(min(100%,310px),1fr));gap:20px}
+.pillar{background:var(--surface);border:1px solid var(--line);border-radius:20px;padding:26px 24px;display:grid;gap:10px;align-content:start;min-width:0;box-shadow:var(--card-shadow);transition:transform .25s}
+.pillar:hover{transform:translateY(-4px)}
+.pillar .badge{width:52px;height:52px;display:grid;place-items:center;position:relative;color:#0b3d3b;font-family:var(--f-head);font-weight:700;font-size:1.2rem}
+.pillar .badge::before,.pillar .badge::after{content:"";position:absolute;inset:6px;background:var(--gold);border-radius:4px;z-index:0}
+.pillar .badge::after{transform:rotate(45deg)}
+.pillar .badge span{position:relative;z-index:1}
+.pillar .ar{font-family:var(--f-brand);font-size:1.9rem;line-height:1.4;color:var(--brand)}
+.pillar h3{font-size:1.05rem;color:var(--fg)}
+.pillar p{color:var(--muted);font-size:.98rem;line-height:1.85}
+
+/* prayer band */
+.band{background:var(--lattice),var(--hero);color:var(--hero-fg)}
+.band .head p{color:var(--hero-muted)}
+.band .eyebrow{color:var(--hero-gold)}
+.table-wrap{overflow-x:auto;border-radius:20px;border:1px solid rgba(227,185,90,.35);background:rgba(6,32,31,.55)}
+table{border-collapse:collapse;width:100%;min-width:500px;font-variant-numeric:tabular-nums}
+th,td{padding:14px 20px;text-align:start;border-bottom:1px solid rgba(247,242,231,.12)}
+th{font-family:var(--f-head);font-size:.9rem;color:var(--hero-gold);font-weight:600}
+tr:last-child td{border-bottom:0}
+td.n{font-family:var(--f-brand);font-size:1.6rem;color:var(--hero-gold);line-height:1.4}
+td.r{font-family:var(--f-head);font-size:1.3rem;font-weight:700}
+.note{margin-top:16px;color:var(--hero-muted);font-size:.98rem}
+
+/* steps */
+.steps{list-style:none;margin:0;padding:0;max-width:46em;position:relative}
+.steps li{display:grid;grid-template-columns:52px 1fr;gap:20px;padding-bottom:30px;position:relative}
+.steps li:last-child{padding-bottom:0}
+.steps li:not(:last-child)::before{content:"";position:absolute;inset-inline-start:25px;top:52px;bottom:0;border-inline-start:2px dashed var(--line)}
+.steps .no{width:52px;height:52px;border-radius:50%;background:var(--brand);color:var(--brand-fg);font-family:var(--f-head);font-weight:700;display:grid;place-items:center;font-size:1.3rem;box-shadow:0 0 0 6px var(--gold-soft)}
+.steps h3{margin-bottom:2px}
+.steps p{color:var(--muted)}
+
+.langs{display:flex;flex-wrap:wrap;gap:10px}
+.chip{border:1px solid var(--line);background:var(--surface);border-radius:999px;padding:6px 20px;font-family:var(--f-head);font-weight:500}
+.chip.on{background:var(--brand);color:var(--brand-fg);border-color:var(--brand)}
+.chip.soon{color:var(--muted);border-style:dashed}
+
+/* faq */
+details{background:var(--surface);border:1px solid var(--line);border-radius:16px;padding:0 22px;transition:box-shadow .2s}
+details[open]{box-shadow:var(--card-shadow);border-color:var(--gold)}
+details+details{margin-top:12px}
+summary{cursor:pointer;padding:18px 0;font-family:var(--f-head);font-weight:600;font-size:1.1rem;list-style:none;display:flex;justify-content:space-between;align-items:center;gap:16px}
+summary::-webkit-details-marker{display:none}
+summary::after{content:"+";flex:none;width:30px;height:30px;border-radius:50%;background:var(--gold-soft);color:var(--gold);display:grid;place-items:center;font-size:1.3rem;line-height:1}
+details[open] summary::after{content:"−"}
+details p{padding-bottom:20px;color:var(--muted)}
+
+.yt{display:grid;grid-template-columns:repeat(auto-fit,minmax(min(100%,300px),1fr));gap:18px}
+.yt a{display:grid;gap:10px;background:var(--surface);border:1px solid var(--line);border-radius:20px;padding:22px;text-decoration:none;box-shadow:var(--card-shadow);transition:transform .25s;min-width:0}
+.yt a:hover{transform:translateY(-4px)}
+.yt .play{width:54px;height:38px;border-radius:12px;background:var(--brand);color:var(--brand-fg);display:grid;place-items:center}
+.yt .play svg{width:16px;height:16px}
+.yt b{font-family:var(--f-head);font-size:1.15rem;color:var(--fg);direction:ltr;text-align:start;unicode-bidi:embed}
+.yt .subbtn{display:inline-flex;align-items:center;justify-content:center;gap:10px;background:#e50000;color:#fff;font-family:var(--f-head);font-weight:700;font-size:1.05rem;padding:10px 22px;border-radius:999px;transition:background .2s}
+.yt a:hover .subbtn{background:#c40000}
+.yt .subbtn svg{width:28px;height:20px;flex:none}
+.yt span.s{color:var(--gold);font-family:var(--f-head);font-weight:600}
+.yt .cover{position:relative;display:block;width:100%;aspect-ratio:16/9;border-radius:14px;overflow:hidden;background:#0b3d3b}
+.yt .cover img{display:block;width:100%;height:100%;object-fit:cover}
+.yt .ov{position:absolute;inset:0;display:grid;direction:rtl;align-content:start;justify-items:start;gap:0;padding:10px 14px 24px;text-align:start;background:linear-gradient(to bottom,rgba(6,24,23,.75),rgba(6,24,23,.1) 50%,transparent)}
+.yt .nm{font-family:var(--f-brand);font-weight:700;font-size:clamp(1.15rem,3.8vw,1.55rem);color:#f6e3ad;text-shadow:0 2px 10px rgba(0,0,0,.7);line-height:1.4;direction:rtl}
+.yt .hd{font-family:var(--f-head);font-size:.72rem;color:#fff3d6;opacity:.9;direction:ltr;letter-spacing:.04em}
+.yt .row{display:flex;align-items:center;gap:12px;min-width:0}
+/* ask */
+.ask{display:grid;grid-template-columns:1.1fr 1fr;gap:32px;align-items:start}
+@media (max-width:860px){.ask{grid-template-columns:1fr}}
+form{display:grid;gap:14px;background:var(--surface);border:1px solid var(--line);border-radius:24px;padding:26px;box-shadow:var(--card-shadow)}
+label{display:grid;gap:6px;font-family:var(--f-head);font-weight:600}
+input,textarea{font:inherit;font-family:var(--f-body);color:var(--fg);background:var(--bg);border:1.5px solid var(--line);border-radius:12px;padding:11px 14px;width:100%;direction:rtl}
+input:focus,textarea:focus{border-color:var(--gold);outline:none}
+textarea{min-height:130px;resize:vertical}
+.out{display:none;gap:12px;background:var(--gold-soft);border-radius:16px;padding:16px}
+.out.on{display:grid}
+.out pre{white-space:pre-wrap;margin:0;font:inherit;user-select:all}
+.contact{display:grid;gap:14px}
+.contact .box{background:var(--surface);border:1px solid var(--line);border-radius:16px;padding:18px 20px}
+.contact b{display:block;font-family:var(--f-head);font-size:.95rem;color:var(--gold);font-weight:600}
+.ltr{direction:ltr;unicode-bidi:embed;display:inline-block;user-select:all;font-weight:600;font-size:1.1rem}
+.todo{color:var(--muted);font-size:.85rem}
+
+footer{background:var(--hero);color:var(--hero-muted);padding-block:36px;font-size:.95rem}
+footer .wrap{display:grid;gap:8px}
+footer strong{font-family:var(--f-brand);color:var(--hero-gold);font-size:1.8rem;font-weight:700;line-height:1.3}
+@media (prefers-reduced-motion:reduce){*{transition:none!important}}
+/* ===== v2: refined palette + type ===== */
+table,td{color:var(--hero-fg);font-size:inherit}
+td:not(.n):not(.r){color:var(--hero-muted)}
+:root{
+  --bg:#faf6ec; --surface:#ffffff; --fg:#10292a; --muted:#4d6361; --line:#e8dfc8;
+  --brand:#0a4744; --brand-fg:#faf6ec; --gold:#8f6612; --gold-soft:#f5e9c8; --gold-bright:#d9ae4e;
+  --hero:#052b2a; --hero-2:#0b514c; --hero-fg:#faf6ec; --hero-muted:#b4d0cb; --hero-gold:#ecc974;
+  --card-shadow:0 20px 44px -24px rgba(5,43,42,.5);
+  --f-brand:'Aref Ruqaa','Amiri',serif;
+  --f-serif:'Markazi Text','Amiri',serif;
+  --f-head:'IBM Plex Sans Arabic','Cairo',system-ui,sans-serif;
+  --f-body:'IBM Plex Sans Arabic','Cairo','Noto Sans Arabic',Tahoma,system-ui,sans-serif;
+  --f-text:'Amiri','Noto Naskh Arabic',serif;
+}
+@media (prefers-color-scheme: dark){:root:not([data-theme="light"]){
+  --bg:#07120f; --surface:#0e1d1a; --fg:#f1ead8; --muted:#a9bcb6; --line:#22393a;
+  --brand:#ecc974; --brand-fg:#07120f; --gold:#ecc974; --gold-soft:#262515; --gold-bright:#ecc974;
+  --hero:#041d1c; --hero-2:#0a3e3a; --card-shadow:0 20px 44px -24px rgba(0,0,0,.85)}}
+:root[data-theme="dark"]{
+  --bg:#07120f; --surface:#0e1d1a; --fg:#f1ead8; --muted:#a9bcb6; --line:#22393a;
+  --brand:#ecc974; --brand-fg:#07120f; --gold:#ecc974; --gold-soft:#262515; --gold-bright:#ecc974;
+  --hero:#041d1c; --hero-2:#0a3e3a; --card-shadow:0 20px 44px -24px rgba(0,0,0,.85)}
+
+body{font-size:17px;line-height:1.95;font-weight:400}
+h1,h2,h3{font-family:var(--f-serif);font-weight:700;letter-spacing:0}
+h2{font-size:clamp(2.3rem,6.2vw,3.4rem);line-height:1.25}
+h3{font-size:1.55rem;line-height:1.3}
+.eyebrow{font-family:var(--f-head);font-weight:600;letter-spacing:.02em;font-size:.95rem}
+.head p{font-size:1.08rem}
+.head h2{position:relative;padding-bottom:16px}
+.head h2::after{content:"";position:absolute;inset-inline-start:0;bottom:0;width:72px;height:3px;border-radius:3px;background:linear-gradient(to left,var(--gold-bright),transparent)}
+
+/* glass header */
+header.top{background:color-mix(in srgb,var(--hero) 84%,transparent);-webkit-backdrop-filter:blur(12px);backdrop-filter:blur(12px)}
+.nav ul{font-weight:500;font-size:.96rem}
+
+/* hero */
+.heroband{background:
+  radial-gradient(700px 420px at 85% 10%,rgba(236,201,116,.16),transparent 70%),
+  radial-gradient(900px 520px at 10% 0%,var(--hero-2),transparent 70%),
+  var(--lattice),var(--hero)}
+.hero{padding-block:clamp(56px,10vw,120px) clamp(64px,10vw,120px)}
+.hero h1{font-family:var(--f-brand);font-size:clamp(2.7rem,8.4vw,5.2rem);line-height:1.5}
+.hero h1 em{background:linear-gradient(100deg,#f6dc98,#d9ae4e);-webkit-background-clip:text;background-clip:text;color:transparent}
+.hero .lead{font-size:1.2rem;line-height:2}
+.btn{font-family:var(--f-head);font-weight:600;font-size:1rem;padding:13px 30px}
+.btn.gold{background:linear-gradient(180deg,#f3d789,#d9ae4e);border-color:#d9ae4e;color:#0a2f2d;box-shadow:0 10px 24px -10px rgba(217,174,78,.7)}
+.btn.line:hover{background:rgba(250,246,236,.08)}
+.heroband::after{content:"";display:block;height:3px;background:linear-gradient(to left,transparent,var(--hero-gold),transparent);opacity:.7}
+
+/* arch card */
+.shahada{border-radius:220px 220px 30px 30px;padding:64px 28px 34px;outline:1px solid var(--hero-gold);outline-offset:-12px;background:linear-gradient(180deg,var(--surface),color-mix(in srgb,var(--surface) 92%,var(--gold-bright)));box-shadow:0 40px 80px -36px rgba(0,0,0,.7),0 0 0 8px rgba(236,201,116,.12)}
+.shahada .star{width:40px;height:40px;background:linear-gradient(135deg,var(--gold-bright),var(--gold));margin-bottom:12px}
+.shahada .ar{font-size:clamp(1.7rem,5vw,2.3rem);line-height:2.15}
+
+/* cards */
+.pillar{position:relative;overflow:hidden;border-radius:22px;box-shadow:var(--card-shadow);padding:28px 26px}
+.pillar::after{content:"";position:absolute;inset-inline-end:-34px;top:-34px;width:150px;height:150px;background:var(--lattice);opacity:.9;pointer-events:none;transform:rotate(12deg)}
+.pillar .badge{width:56px;height:56px}
+.pillar .badge::before,.pillar .badge::after{background:linear-gradient(135deg,var(--gold-bright),var(--gold))}
+.pillar .badge{color:#fff}
+.pillar .ar{font-size:2.1rem}
+.pillar h3{font-family:var(--f-head);font-size:1.02rem;font-weight:600;color:var(--muted)}
+.steps h3,.head h2{font-family:var(--f-serif)}
+.steps h3{font-size:1.5rem}
+.steps .no{background:linear-gradient(135deg,var(--brand),color-mix(in srgb,var(--brand) 70%,#000));}
+summary{font-family:var(--f-head);font-weight:600;font-size:1.08rem}
+details{border-radius:18px}
+details[open]{border-color:var(--gold-bright)}
+.table-wrap{border-radius:22px;box-shadow:0 30px 60px -34px rgba(0,0,0,.7)}
+td.n{font-size:1.9rem}
+form{border-radius:26px}
+.contact .box{border-radius:18px;box-shadow:0 14px 30px -22px rgba(5,43,42,.5)}
+.yt a{border-radius:22px;padding:18px 18px 22px;box-shadow:var(--card-shadow)}
+.yt .cover{border-radius:14px;box-shadow:0 12px 26px -14px rgba(0,0,0,.6)}
+footer{border-top:3px solid transparent;border-image:linear-gradient(to left,transparent,var(--hero-gold),transparent) 1}
+footer strong{font-size:2rem}
+.langbar{background:#031614;color:var(--hero-muted);font-family:var(--f-head);font-size:.85rem;border-bottom:1px solid rgba(236,201,116,.18)}
+.lb{display:flex;align-items:center;gap:14px;padding-block:6px;overflow-x:auto;white-space:nowrap}
+.lb-l{display:inline-flex;align-items:center;gap:6px;color:var(--hero-gold);font-weight:600;flex:none}
+.lb-l svg{width:16px;height:16px}
+.lb ul{display:flex;gap:6px;list-style:none;margin:0;padding:0}
+.lg{display:inline-block;padding:1px 12px;border-radius:999px;border:1px solid transparent;opacity:.6;cursor:default}
+.lg.on{background:var(--hero-gold);color:#0a2f2d;opacity:1;font-weight:600}
+.lb-s{margin-inline-start:auto;opacity:.6;font-size:.78rem;flex:none}
+@media (max-width:600px){.lb-s{display:none}}
+.nav a.l[href="https://edc.org.kw/"]{background:linear-gradient(180deg,#f3d789,#d9ae4e);color:#0a2f2d;font-weight:600;padding:3px 16px;border-radius:999px}
+.nav a.l[href="https://edc.org.kw/"]:hover{color:#0a2f2d;filter:brightness(1.08)}
+.hero h1{font-family:'Lalezar',var(--f-brand);font-weight:400;font-size:clamp(2.6rem,8vw,4.8rem);line-height:1.5;letter-spacing:0}
+
+/* ===== English / LTR overrides ===== */
+:root{direction:ltr;
+  --f-brand:'Cinzel','Cormorant Garamond',serif;
+  --f-serif:'Cormorant Garamond','Playfair Display',serif;
+  --f-head:'Nunito Sans',system-ui,sans-serif;
+  --f-body:'Nunito Sans',system-ui,sans-serif;}
+body{direction:ltr;font-size:17px;line-height:1.75}
+h2{font-size:clamp(2.4rem,6vw,3.6rem);line-height:1.1;font-weight:700}
+h3{font-size:1.6rem;line-height:1.2}
+.head h2::after{background:linear-gradient(to right,var(--gold-bright),transparent)}
+.brand{font-family:var(--f-brand);font-size:1.5rem;letter-spacing:.14em;font-weight:700}
+.hero h1{font-family:'Cormorant Garamond',serif;font-weight:700;font-size:clamp(2.8rem,7.4vw,5rem);line-height:1.08}
+.hero .lead{line-height:1.8}
+.hero h1 em{font-style:italic}
+.shahada .ar{direction:rtl}
+.shahada .tr{display:block;margin-top:10px;font-family:var(--f-serif);font-style:italic;font-size:1.2rem;color:var(--muted)}
+.pillar .ar{font-family:var(--f-serif);font-size:2.2rem;font-weight:700;direction:ltr}
+.pillar h3{font-family:var(--f-head);font-size:.98rem;font-weight:600}
+td.n{font-family:var(--f-serif);font-size:1.9rem;font-weight:700}
+.steps h3{font-size:1.55rem}
+.eyebrow{text-transform:uppercase;letter-spacing:.12em;font-size:.8rem}
+input,textarea{direction:ltr}
+.ltr{direction:ltr}
+.yt .ov{direction:ltr}
+.yt .nm{font-family:var(--f-serif);font-weight:700;font-size:clamp(1.3rem,4vw,1.7rem);direction:ltr;letter-spacing:.02em}
+.yt .hd{display:none}
+.lb{flex-direction:row}
+a.lg{text-decoration:none;color:inherit}
+a.lg:hover{opacity:1;border-color:var(--hero-gold)}
+.nav a.l.q{font-weight:600}
+footer strong{font-family:var(--f-brand);letter-spacing:.14em;font-size:1.4rem}
+.langs-note{color:var(--muted)}
+</style>
+<style id="st-en-quran" media="not all">
+/* Layout: RTL. Teal hero with star lattice, then a searchable grid of the 114 surahs. */
+:root{
+  direction:rtl;
+  --bg:#f7f2e7; --surface:#fffdf8; --fg:#17302f; --muted:#51655f; --line:#e2d8bf;
+  --brand:#0b4a47; --brand-fg:#f7f2e7; --gold:#b98a2e; --gold-soft:#f2e4bf;
+  --hero:#0b3d3b; --hero-2:#0e5a55; --hero-fg:#f7f2e7; --hero-muted:#bcd5d0; --hero-gold:#e3b95a;
+  --mak:#0b4a47; --mad:#9a6b17;
+  --card-shadow:0 10px 30px -14px rgba(11,61,59,.35);
+  --f-brand:'Aref Ruqaa','Amiri',serif; --f-head:'El Messiri','Cairo',system-ui,sans-serif;
+  --f-body:'Cairo','Noto Sans Arabic',Tahoma,system-ui,sans-serif; --f-text:'Amiri','Noto Naskh Arabic',serif;
+  --lattice:url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='88' height='88' viewBox='0 0 88 88'%3E%3Cg fill='none' stroke='%23e3b95a' stroke-opacity='.2' stroke-width='1.2'%3E%3Crect x='22' y='22' width='44' height='44'/%3E%3Crect x='22' y='22' width='44' height='44' transform='rotate(45 44 44)'/%3E%3Ccircle cx='44' cy='44' r='10'/%3E%3C/g%3E%3C/svg%3E");
+}
+@media (prefers-color-scheme: dark){:root:not([data-theme="light"]){
+  --bg:#0c1716; --surface:#13221f; --fg:#efe9d8; --muted:#a8bab4; --line:#26403b;
+  --brand:#e3b95a; --brand-fg:#0c1716; --gold:#e3b95a; --gold-soft:#2a2818;
+  --hero:#06201f; --hero-2:#0a3532; --mak:#7fd0c4; --mad:#e3b95a; --card-shadow:0 10px 30px -14px rgba(0,0,0,.7); color-scheme:dark}}
+:root[data-theme="dark"]{
+  --bg:#0c1716; --surface:#13221f; --fg:#efe9d8; --muted:#a8bab4; --line:#26403b;
+  --brand:#e3b95a; --brand-fg:#0c1716; --gold:#e3b95a; --gold-soft:#2a2818;
+  --hero:#06201f; --hero-2:#0a3532; --mak:#7fd0c4; --mad:#e3b95a; --card-shadow:0 10px 30px -14px rgba(0,0,0,.7); color-scheme:dark}
+*{box-sizing:border-box}
+body{margin:0;background:var(--bg);color:var(--fg);font-family:var(--f-body);font-size:17px;line-height:1.8;direction:rtl}
+a{color:inherit}
+:focus-visible{outline:3px solid var(--gold);outline-offset:3px;border-radius:6px}
+.wrap{max-width:1080px;margin-inline:auto;padding-left:max(16px,env(safe-area-inset-left,0px));padding-right:max(16px,env(safe-area-inset-right,0px))}
+body::before{content:"";position:fixed;inset:0 0 auto;height:env(safe-area-inset-top,0px);z-index:10;background:var(--hero)}
+.heroband{background:radial-gradient(900px 380px at 80% 0%,var(--hero-2),transparent 70%),var(--lattice),var(--hero);color:var(--hero-fg)}
+.navbar{border-bottom:1px solid rgba(227,185,90,.25)}
+.nav{display:flex;align-items:center;justify-content:space-between;gap:16px;padding-block:8px}
+.brand{font-family:var(--f-brand);font-size:2rem;line-height:1.3;color:var(--hero-gold);text-decoration:none;display:flex;align-items:center;gap:10px}
+.brand svg{width:26px;height:26px}
+.nav ul{display:flex;flex-wrap:wrap;gap:8px 22px;list-style:none;margin:0;padding:0;font-family:var(--f-head);font-weight:500;font-size:.98rem}
+.nav a.l{text-decoration:none;color:var(--hero-muted);transition:color .2s}
+.nav a.l:hover,.nav a.l.on{color:var(--hero-gold)}
+.nav a.l.on{border-bottom:2px solid var(--hero-gold)}
+@media (max-width:980px){.nav{flex-direction:column;align-items:flex-start;gap:4px}}
+.hero{padding-block:clamp(44px,8vw,88px) clamp(36px,6vw,60px);display:grid;gap:18px;justify-items:start}
+.crumb{font-family:var(--f-head);color:var(--hero-gold);text-decoration:none;font-weight:600}
+h1{font-family:var(--f-brand);font-weight:700;font-size:clamp(2.6rem,8vw,4.6rem);line-height:1.4;margin:0;color:var(--hero-gold)}
+.lead{max-width:36em;color:var(--hero-muted);font-size:1.15rem;margin:0}
+.stats{display:flex;flex-wrap:wrap;gap:10px;margin-top:6px}
+.stat{border:1px solid rgba(227,185,90,.4);border-radius:999px;padding:4px 18px;font-family:var(--f-head);font-weight:600;font-variant-numeric:tabular-nums}
+.tools{position:sticky;top:env(safe-area-inset-top,0px);z-index:5;background:var(--bg);border-bottom:1px solid var(--line)}
+.tools .wrap{display:flex;flex-wrap:wrap;gap:12px;align-items:center;padding-block:12px}
+.search{flex:1 1 260px;min-width:0;font:inherit;color:var(--fg);background:var(--surface);border:1.5px solid var(--line);border-radius:999px;padding:10px 20px;direction:rtl}
+.search:focus{border-color:var(--gold);outline:none}
+.seg{display:flex;gap:8px;flex-wrap:wrap}
+.seg button{font:inherit;font-family:var(--f-head);font-weight:600;border:1.5px solid var(--line);background:var(--surface);color:var(--fg);padding:6px 18px;border-radius:999px;cursor:pointer}
+.seg button[aria-pressed="true"]{background:var(--brand);color:var(--brand-fg);border-color:var(--brand)}
+main{padding-block:32px 56px}
+.count{color:var(--muted);margin:0 0 18px;font-family:var(--f-head)}
+.grid{list-style:none;margin:0;padding:0;display:grid;grid-template-columns:repeat(auto-fill,minmax(min(100%,250px),1fr));gap:14px}
+.grid a{display:grid;grid-template-columns:48px 1fr;gap:14px;align-items:center;background:var(--surface);border:1px solid var(--line);border-radius:16px;padding:14px 16px;text-decoration:none;transition:transform .2s,box-shadow .2s,border-color .2s;min-width:0}
+.grid a:hover{transform:translateY(-3px);box-shadow:var(--card-shadow);border-color:var(--gold)}
+.no{width:46px;height:46px;display:grid;place-items:center;position:relative;font-family:var(--f-head);font-weight:700;font-variant-numeric:tabular-nums;color:#0b3d3b}
+.no::before,.no::after{content:"";position:absolute;inset:7px;background:var(--gold);border-radius:3px}
+.no::after{transform:rotate(45deg)}
+.no span{position:relative;z-index:1;font-size:.95rem}
+.nm{font-family:var(--f-head);font-weight:700;font-size:1.2rem;line-height:1.4}
+.meta{font-size:.85rem;color:var(--muted);display:flex;gap:8px;align-items:center}
+.tag{font-weight:600}
+.tag.m{color:var(--mak)} .tag.d{color:var(--mad)}
+.empty{display:none;text-align:center;color:var(--muted);padding:40px 0}
+.empty.on{display:block}
+.langs{margin-top:44px;padding:26px;background:var(--surface);border:1px solid var(--line);border-radius:20px}
+.langs h2{font-family:var(--f-head);margin:0 0 6px;font-size:1.4rem}
+.langs p{margin:0 0 14px;color:var(--muted)}
+.chips{display:flex;flex-wrap:wrap;gap:8px}
+.chips span{border:1px solid var(--line);border-radius:999px;padding:2px 14px;font-size:.95rem;background:var(--bg)}
+.note{margin-top:18px;color:var(--muted);font-size:.92rem}
+@media (prefers-reduced-motion:reduce){*{transition:none!important}}
+/* ===== v2: refined palette + type ===== */
+:root{
+  --bg:#faf6ec; --surface:#ffffff; --fg:#10292a; --muted:#4d6361; --line:#e8dfc8;
+  --brand:#0a4744; --brand-fg:#faf6ec; --gold:#8f6612; --gold-soft:#f5e9c8; --gold-bright:#d9ae4e;
+  --hero:#052b2a; --hero-2:#0b514c; --hero-fg:#faf6ec; --hero-muted:#b4d0cb; --hero-gold:#ecc974;
+  --card-shadow:0 20px 44px -24px rgba(5,43,42,.5);
+  --f-brand:'Aref Ruqaa','Amiri',serif;
+  --f-serif:'Markazi Text','Amiri',serif;
+  --f-head:'IBM Plex Sans Arabic','Cairo',system-ui,sans-serif;
+  --f-body:'IBM Plex Sans Arabic','Cairo','Noto Sans Arabic',Tahoma,system-ui,sans-serif;
+  --f-text:'Amiri','Noto Naskh Arabic',serif;
+}
+@media (prefers-color-scheme: dark){:root:not([data-theme="light"]){
+  --bg:#07120f; --surface:#0e1d1a; --fg:#f1ead8; --muted:#a9bcb6; --line:#22393a;
+  --brand:#ecc974; --brand-fg:#07120f; --gold:#ecc974; --gold-soft:#262515; --gold-bright:#ecc974;
+  --hero:#041d1c; --hero-2:#0a3e3a; --card-shadow:0 20px 44px -24px rgba(0,0,0,.85)}}
+:root[data-theme="dark"]{
+  --bg:#07120f; --surface:#0e1d1a; --fg:#f1ead8; --muted:#a9bcb6; --line:#22393a;
+  --brand:#ecc974; --brand-fg:#07120f; --gold:#ecc974; --gold-soft:#262515; --gold-bright:#ecc974;
+  --hero:#041d1c; --hero-2:#0a3e3a; --card-shadow:0 20px 44px -24px rgba(0,0,0,.85)}
+
+body{font-size:17px;line-height:1.95;font-weight:400}
+h1,h2,h3{font-family:var(--f-serif);font-weight:700;letter-spacing:0}
+h2{font-size:clamp(2.3rem,6.2vw,3.4rem);line-height:1.25}
+h3{font-size:1.55rem;line-height:1.3}
+.eyebrow{font-family:var(--f-head);font-weight:600;letter-spacing:.02em;font-size:.95rem}
+.head p{font-size:1.08rem}
+.head h2{position:relative;padding-bottom:16px}
+.head h2::after{content:"";position:absolute;inset-inline-start:0;bottom:0;width:72px;height:3px;border-radius:3px;background:linear-gradient(to left,var(--gold-bright),transparent)}
+
+/* glass header */
+header.top{background:color-mix(in srgb,var(--hero) 84%,transparent);-webkit-backdrop-filter:blur(12px);backdrop-filter:blur(12px)}
+.nav ul{font-weight:500;font-size:.96rem}
+
+/* hero */
+.heroband{background:
+  radial-gradient(700px 420px at 85% 10%,rgba(236,201,116,.16),transparent 70%),
+  radial-gradient(900px 520px at 10% 0%,var(--hero-2),transparent 70%),
+  var(--lattice),var(--hero)}
+.hero{padding-block:clamp(56px,10vw,120px) clamp(64px,10vw,120px)}
+.hero h1{font-family:var(--f-brand);font-size:clamp(2.7rem,8.4vw,5.2rem);line-height:1.5}
+.hero h1 em{background:linear-gradient(100deg,#f6dc98,#d9ae4e);-webkit-background-clip:text;background-clip:text;color:transparent}
+.hero .lead{font-size:1.2rem;line-height:2}
+.btn{font-family:var(--f-head);font-weight:600;font-size:1rem;padding:13px 30px}
+.btn.gold{background:linear-gradient(180deg,#f3d789,#d9ae4e);border-color:#d9ae4e;color:#0a2f2d;box-shadow:0 10px 24px -10px rgba(217,174,78,.7)}
+.btn.line:hover{background:rgba(250,246,236,.08)}
+.heroband::after{content:"";display:block;height:3px;background:linear-gradient(to left,transparent,var(--hero-gold),transparent);opacity:.7}
+
+/* arch card */
+.shahada{border-radius:220px 220px 30px 30px;padding:64px 28px 34px;outline:1px solid var(--hero-gold);outline-offset:-12px;background:linear-gradient(180deg,var(--surface),color-mix(in srgb,var(--surface) 92%,var(--gold-bright)));box-shadow:0 40px 80px -36px rgba(0,0,0,.7),0 0 0 8px rgba(236,201,116,.12)}
+.shahada .star{width:40px;height:40px;background:linear-gradient(135deg,var(--gold-bright),var(--gold));margin-bottom:12px}
+.shahada .ar{font-size:clamp(1.7rem,5vw,2.3rem);line-height:2.15}
+
+/* cards */
+.pillar{position:relative;overflow:hidden;border-radius:22px;box-shadow:var(--card-shadow);padding:28px 26px}
+.pillar::after{content:"";position:absolute;inset-inline-end:-34px;top:-34px;width:150px;height:150px;background:var(--lattice);opacity:.9;pointer-events:none;transform:rotate(12deg)}
+.pillar .badge{width:56px;height:56px}
+.pillar .badge::before,.pillar .badge::after{background:linear-gradient(135deg,var(--gold-bright),var(--gold))}
+.pillar .badge{color:#fff}
+.pillar .ar{font-size:2.1rem}
+.pillar h3{font-family:var(--f-head);font-size:1.02rem;font-weight:600;color:var(--muted)}
+.steps h3,.head h2{font-family:var(--f-serif)}
+.steps h3{font-size:1.5rem}
+.steps .no{background:linear-gradient(135deg,var(--brand),color-mix(in srgb,var(--brand) 70%,#000));}
+summary{font-family:var(--f-head);font-weight:600;font-size:1.08rem}
+details{border-radius:18px}
+details[open]{border-color:var(--gold-bright)}
+.table-wrap{border-radius:22px;box-shadow:0 30px 60px -34px rgba(0,0,0,.7)}
+td.n{font-size:1.9rem}
+form{border-radius:26px}
+.contact .box{border-radius:18px;box-shadow:0 14px 30px -22px rgba(5,43,42,.5)}
+.yt a{border-radius:22px;padding:18px 18px 22px;box-shadow:var(--card-shadow)}
+.yt .cover{border-radius:14px;box-shadow:0 12px 26px -14px rgba(0,0,0,.6)}
+footer{border-top:3px solid transparent;border-image:linear-gradient(to left,transparent,var(--hero-gold),transparent) 1}
+footer strong{font-size:2rem}
+.grid .nm{font-family:var(--f-serif);font-size:1.35rem;font-weight:700;line-height:1.25}
+.grid a{border-radius:18px;padding:16px 18px}
+.no{color:#fff}
+.no::before,.no::after{background:linear-gradient(135deg,var(--gold-bright),var(--gold))}
+.stat{background:rgba(236,201,116,.08)}
+.langs{border-radius:24px}
+.langs h2{font-family:var(--f-serif);font-size:1.9rem}
+.tools{background:color-mix(in srgb,var(--bg) 88%,transparent);-webkit-backdrop-filter:blur(12px);backdrop-filter:blur(12px)}
+.langbar{background:#031614;color:var(--hero-muted);font-family:var(--f-head);font-size:.85rem;border-bottom:1px solid rgba(236,201,116,.18)}
+.lb{display:flex;align-items:center;gap:14px;padding-block:6px;overflow-x:auto;white-space:nowrap}
+.lb-l{display:inline-flex;align-items:center;gap:6px;color:var(--hero-gold);font-weight:600;flex:none}
+.lb-l svg{width:16px;height:16px}
+.lb ul{display:flex;gap:6px;list-style:none;margin:0;padding:0}
+.lg{display:inline-block;padding:1px 12px;border-radius:999px;border:1px solid transparent;opacity:.6;cursor:default}
+.lg.on{background:var(--hero-gold);color:#0a2f2d;opacity:1;font-weight:600}
+.lb-s{margin-inline-start:auto;opacity:.6;font-size:.78rem;flex:none}
+@media (max-width:600px){.lb-s{display:none}}
+.nav a.l[href="https://edc.org.kw/"]{background:linear-gradient(180deg,#f3d789,#d9ae4e);color:#0a2f2d;font-weight:600;padding:3px 16px;border-radius:999px}
+.nav a.l[href="https://edc.org.kw/"]:hover{color:#0a2f2d;filter:brightness(1.08)}
+a.lg{text-decoration:none;color:inherit;opacity:.9}
+a.lg:hover{opacity:1;border-color:var(--hero-gold)}
+
+/* ===== English / LTR overrides ===== */
+:root{direction:ltr;--f-brand:'Cinzel','Cormorant Garamond',serif;--f-serif:'Cormorant Garamond',serif;--f-head:'Nunito Sans',system-ui,sans-serif;--f-body:'Nunito Sans',system-ui,sans-serif}
+body{direction:ltr;line-height:1.7}
+h1{font-family:'Cormorant Garamond',serif;font-weight:700;font-size:clamp(2.8rem,7.4vw,5rem);line-height:1.1;color:var(--hero-gold)}
+.brand{font-family:var(--f-brand);font-size:1.5rem;letter-spacing:.14em;font-weight:700}
+.search{direction:ltr}
+.grid .nm{font-family:var(--f-serif);font-size:1.45rem;font-weight:700;line-height:1.2}
+.grid .ar{display:block;font-family:'Amiri',serif;font-size:1.1rem;color:var(--muted);direction:rtl;text-align:start;line-height:1.4}
+.langs h2{font-family:var(--f-serif);font-size:2rem}
+a.lg{text-decoration:none;color:inherit}
+.nav a.l.q{font-weight:600}
+.tag{text-transform:none}
+</style>
+<style>[id]{scroll-margin-top:84px}</style>
+<div class="view" id="v-ar">
+
+<div class="langbar"><div class="wrap lb">
+  <span class="lb-l"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" aria-hidden="true"><circle cx="12" cy="12" r="9"/><path d="M3 12h18M12 3c3 3.2 3 14.8 0 18M12 3c-3 3.2-3 14.8 0 18"/></svg>اللغات</span>
+  <ul><li><span class="lg on" aria-current="true">العربية</span></li><li><a class="lg" href="#en" data-view="en">English</a></li><li><span class="lg" aria-disabled="true" title="قريبًا">Français</span></li><li><span class="lg" aria-disabled="true" title="قريبًا">Deutsch</span></li><li><span class="lg" aria-disabled="true" title="قريبًا">اردو</span></li><li><span class="lg" aria-disabled="true" title="قريبًا">Filipino</span></li><li><span class="lg" aria-disabled="true" title="قريبًا">हिन्दी</span></li></ul>
+  <span class="lb-s">باقي اللغات قريبًا</span>
+</div></div>
+<header class="top">
+  <div class="wrap nav">
+    <a class="brand" href="#" data-go="ar-top" aria-label="نبراس">
+      <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M9 3h6M10 3v2.5M14 3v2.5M7 9a5 5 0 0 1 10 0v6a5 5 0 0 1-10 0z"/><path d="M12 7v8M9.5 21h5"/></svg>
+      نبراس
+    </a>
+    <ul>
+      <li><a class="l" href="#" data-go="ar-pillars">أركان الإسلام</a></li>
+      <li><a class="l" href="#" data-go="ar-prayer">الصلاة</a></li>
+      <li><a class="l" href="#" data-go="ar-start">أول خطواتك</a></li>
+      <li><a class="l" href="#" data-go="ar-faq">أسئلة شائعة</a></li>
+      <li><a class="l" href="#ar-quran" data-view="ar-quran">معجم القرآن</a></li>
+      <li><a class="l" href="#" data-go="ar-channels">يوتيوب</a></li>
+      <li><a class="l" href="#" data-go="ar-ask">اسأل</a></li>
+      <li><a class="l" href="https://edc.org.kw/" target="_blank" rel="noopener">الموقع الرسمي</a></li>
+    </ul>
+  </div>
+</header>
+
+<main id="ar-top">
+  <div class="heroband">
+    <div class="wrap hero">
+      <div class="grid">
+        <div>
+          <p class="eyebrow">للباحثين عن الحقيقة وللمسلمين الجدد</p>
+          <h1>مساحتك الخاصة للتعرّف على <em>الإسلام</em> بلغتك</h1>
+          <p class="lead">بوابتك الرقمية الشاملة للتعريف بالدين الإسلامي الحنيف ونشر قيم السلام والتسامح. تصفح محتوانا المترجم، وتواصل معنا في أي وقت لطرح استفساراتك والحصول على إجابات علمية وموثوقة.</p>
+          <div class="cta">
+            <a class="btn gold" href="#" data-go="ar-pillars">ابدأ من هنا</a>
+            <a class="btn line" href="#" data-go="ar-ask">اطرح سؤالك</a>
+          </div>
+        </div>
+        <aside class="shahada" aria-label="شهادة التوحيد">
+          <span class="star" aria-hidden="true"></span>
+          <div class="ar">أَشْهَدُ أَنْ لَا إِلَهَ إِلَّا اللَّهُ<br>وَأَشْهَدُ أَنَّ مُحَمَّدًا رَسُولُ اللَّهِ</div>
+          <small>شهادة التوحيد، وبها يدخل الإنسان في الإسلام. معناها: أقرّ بأن لا معبود بحق إلا الله، وأن محمدًا رسوله.</small>
+        </aside>
+      </div>
+    </div>
+  </div>
+
+  <section id="ar-pillars">
+    <div class="wrap">
+      <div class="head">
+        <p class="eyebrow">الأساس</p>
+        <h2>أركان الإسلام الخمسة</h2>
+        <p>هذه الأعمال الخمسة هي بناء الإسلام العملي. تبدأ بالإيمان، ثم تتبعها العبادات.</p>
+      </div>
+      <div class="pillars">
+        <article class="pillar"><div class="badge"><span>1</span></div><div class="ar">الشهادتان</div><h3>الإقرار بالتوحيد والرسالة</h3><p>الإيمان بإله واحد لا شريك له، وبأن محمدًا ﷺ عبده ورسوله.</p></article>
+        <article class="pillar"><div class="badge"><span>2</span></div><div class="ar">الصلاة</div><h3>خمس مرات في اليوم</h3><p>صلة مباشرة بين العبد وربه، تنظّم يومه وتذكّره بالله.</p></article>
+        <article class="pillar"><div class="badge"><span>3</span></div><div class="ar">الزكاة</div><h3>حق الفقراء في المال</h3><p>يخرج المسلم القادر جزءًا محددًا من ماله كل عام لمستحقيه.</p></article>
+        <article class="pillar"><div class="badge"><span>4</span></div><div class="ar">الصيام</div><h3>شهر رمضان</h3><p>امتناع عن الطعام والشراب من الفجر إلى المغرب، تدريبًا للنفس وشكرًا لله.</p></article>
+        <article class="pillar"><div class="badge"><span>5</span></div><div class="ar">الحج</div><h3>إلى بيت الله الحرام</h3><p>مرة في العمر لمن استطاع إليه سبيلًا، في مكة المكرمة.</p></article>
+      </div>
+    </div>
+  </section>
+
+  <section id="ar-prayer" class="band">
+    <div class="wrap">
+      <div class="head">
+        <p class="eyebrow">العبادة اليومية</p>
+        <h2>الصلوات الخمس وعدد ركعاتها</h2>
+        <p>مواقيت الصلاة تتغير بتغير المدينة والفصل. استخدم تقويم مدينتك أو تطبيقًا موثوقًا لمعرفة الوقت بدقة.</p>
+      </div>
+      <div class="table-wrap">
+        <table>
+          <thead><tr><th>الصلاة</th><th>وقتها</th><th>الركعات</th></tr></thead>
+          <tbody>
+            <tr><td class="n">الفجر</td><td>من طلوع الفجر الصادق إلى الشروق</td><td class="r">2</td></tr>
+            <tr><td class="n">الظهر</td><td>بعد زوال الشمس عن وسط السماء</td><td class="r">4</td></tr>
+            <tr><td class="n">العصر</td><td>إذا صار ظل الشيء مثله تقريبًا</td><td class="r">4</td></tr>
+            <tr><td class="n">المغرب</td><td>من غروب الشمس</td><td class="r">3</td></tr>
+            <tr><td class="n">العشاء</td><td>بعد ذهاب الشفق الأحمر</td><td class="r">4</td></tr>
+          </tbody>
+        </table>
+      </div>
+      <p class="note">يسبق الصلاة الوضوء: غسل اليدين والفم والأنف والوجه واليدين إلى المرفقين، ومسح الرأس، وغسل القدمين.</p>
+    </div>
+  </section>
+
+  <section id="ar-start">
+    <div class="wrap">
+      <div class="head">
+        <p class="eyebrow">للمسلم الجديد</p>
+        <h2>أول خطواتك بعد الإسلام</h2>
+        <p>لا تحتاج أن تتعلم كل شيء في يوم. هذا ترتيب مبسّط يمكنك أن تسير عليه بهدوئك.</p>
+      </div>
+      <ol class="steps">
+        <li><span class="no">1</span><div><h3>انطق الشهادتين وافهم معناهما</h3><p>بهما تصير مسلمًا. يكفي أن تنطقهما عن قناعة، ولا يشترط حضور أحد.</p></div></li>
+        <li><span class="no">2</span><div><h3>تعلّم الوضوء والصلاة</h3><p>ابدأ بالفاتحة وقصار السور، وصلِّ بما تحفظ، وزد حفظك مع الأيام.</p></div></li>
+        <li><span class="no">3</span><div><h3>اقرأ عن حياة النبي ﷺ</h3><p>سيرته تجعل الأحكام أقرب إلى القلب، وتعرّفك على القدوة العملية.</p></div></li>
+        <li><span class="no">4</span><div><h3>اصحب من يعينك</h3><p>اطلب أخًا صالحًا أو جماعة قريبة تسألهم وتصلي معهم. الرفقة تخفف الطريق.</p></div></li>
+        <li><span class="no">5</span><div><h3>تدرّج في التغيير</h3><p>الإسلام دين يسر. لا تُحمّل نفسك فوق طاقتها، وسل أهل العلم فيما يشكل عليك.</p></div></li>
+      </ol>
+    </div>
+  </section>
+
+  <section id="ar-langs" style="padding-top:0">
+    <div class="wrap">
+      <div class="head">
+        <p class="eyebrow">اللغات</p>
+        <h2>المحتوى بلغتك</h2>
+        <p>الصفحة الحالية بالعربية. بقية اللغات قيد الإعداد.</p>
+      </div>
+      <div class="langs">
+        <span class="chip on">العربية</span>
+        <a class="chip" href="#en" data-view="en" style="text-decoration:none">English</a>
+        <span class="chip soon">Français · قريبًا</span>
+        <span class="chip soon">Deutsch · قريبًا</span>
+        <span class="chip soon">اردو · قريبًا</span>
+        <span class="chip soon">Filipino · قريبًا</span>
+        <span class="chip soon">हिन्दी · قريبًا</span>
+      </div>
+    </div>
+  </section>
+
+  <section id="ar-faq" style="padding-top:0">
+    <div class="wrap">
+      <div class="head"><p class="eyebrow">أسئلة شائعة</p><h2>أسئلة يسألها الجميع</h2></div>
+      <div style="max-width:48em">
+        <details><summary>هل أحتاج إلى شخص أو مكان خاص لأدخل في الإسلام؟</summary><p>لا. يدخل الإنسان في الإسلام بنطق الشهادتين عن علم واقتناع. ويحسن أن تتواصل مع مسلمين لتتعلم منهم.</p></details>
+        <details><summary>هل يلزمني تغيير اسمي؟</summary><p>لا يلزم تغيير الاسم إن كان معناه حسنًا ولا يخالف الإسلام. ومن أراد اسمًا جديدًا فله ذلك.</p></details>
+        <details><summary>هل يجب أن أتعلم العربية؟</summary><p>لا يشترط إتقانها للدخول في الإسلام. ويحتاج المسلم إلى حفظ ما تصح به صلاته بالعربية، ويمكنه فهم المعاني بلغته.</p></details>
+        <details><summary>ماذا عن أهلي وأصدقائي من غير المسلمين؟</summary><p>يأمر الإسلام ببرّ الوالدين وحسن معاملة الناس جميعًا، ولو اختلفت أديانهم.</p></details>
+        <details><summary>أخطأت كثيرًا في الماضي، فهل أُقبل؟</summary><p>الإسلام يمحو ما قبله. باب التوبة مفتوح لكل إنسان مهما كان ماضيه.</p></details>
+      </div>
+    </div>
+  </section>
+
+  <section id="ar-channels" style="padding-top:0">
+    <div class="wrap">
+      <div class="head"><p class="eyebrow">قنواتنا</p><h2>تابعنا على يوتيوب</h2><p>مقاطع مرئية تعرّف بالإسلام.</p></div>
+      <div class="yt">
+        <a href="https://www.youtube.com/@Knowislam77?sub_confirmation=1" target="_blank" rel="noopener"><span class="cover"><img src="img/c1.jpg" alt="غلاف قناة Know Islam" loading="lazy"><span class="ov"><span class="nm">اعرف الإسلام</span><span class="hd">@Knowislam77</span></span></span><span class="subbtn"><svg viewBox="0 0 28 20" aria-hidden="true"><rect width="28" height="20" rx="6" fill="#fff"/><path d="M11 5.5v9l8-4.5z" fill="#ff0000"/></svg><span>اشترك</span></span></a>
+        <a href="https://www.youtube.com/@BestIslamicvideo77?sub_confirmation=1" target="_blank" rel="noopener"><span class="cover"><img src="img/c2.jpg" alt="غلاف قناة Best Islamic Video" loading="lazy"><span class="ov"><span class="nm">أجمل المقاطع الإسلامية</span><span class="hd">@BestIslamicvideo77</span></span></span><span class="subbtn"><svg viewBox="0 0 28 20" aria-hidden="true"><rect width="28" height="20" rx="6" fill="#fff"/><path d="M11 5.5v9l8-4.5z" fill="#ff0000"/></svg><span>اشترك</span></span></a>
+        <a href="https://www.youtube.com/@IslamStudio77?sub_confirmation=1" target="_blank" rel="noopener"><span class="cover"><img src="img/c3.jpg" alt="غلاف قناة Islam Studio" loading="lazy"><span class="ov"><span class="nm">استوديو الإسلام</span><span class="hd">@IslamStudio77</span></span></span><span class="subbtn"><svg viewBox="0 0 28 20" aria-hidden="true"><rect width="28" height="20" rx="6" fill="#fff"/><path d="M11 5.5v9l8-4.5z" fill="#ff0000"/></svg><span>اشترك</span></span></a>
+      </div>
+    </div>
+  </section>
+
+  <section id="ar-ask" style="padding-top:0">
+    <div class="wrap">
+      <div class="head"><p class="eyebrow">تواصل</p><h2>اطرح سؤالك</h2><p>اكتب سؤالك هنا لتجهّز رسالتك، ثم انسخها وأرسلها عبر البريد الإلكتروني أو الهاتف المجاورين.</p></div>
+      <div class="ask">
+        <form id="ar-askForm">
+          <label for="ar-nm">اسمك (اختياري)<input id="ar-nm" autocomplete="name"></label>
+          <label for="ar-lg">لغتك<input id="ar-lg" placeholder="مثال: العربية"></label>
+          <label for="ar-q">سؤالك<textarea id="ar-q" required></textarea></label>
+          <button class="btn" type="submit">جهّز الرسالة</button>
+          <div class="out" id="ar-out" aria-live="polite">
+            <pre id="ar-msg"></pre>
+            <button class="btn ghost" type="button" id="ar-copy">انسخ الرسالة</button>
+          </div>
+        </form>
+        <div class="contact">
+          <div class="box"><b>العنوان</b>الكويت - الكويت العاصمة - شارع فهد السالم - مسجد الملا صالح - السرداب</div>
+          <div class="box"><b>مركز الاتصال</b><span class="ltr">009651800082</span></div>
+          <div class="box"><b>الهاتف</b><span class="ltr">009651800082</span> &nbsp;·&nbsp; <span class="ltr">0096597288044</span></div>
+          <div class="box"><b>رقم المندوب</b><span class="ltr">0096597288044</span></div>
+          <div class="box"><b>البريد الإلكتروني</b><span class="ltr">info@edc.org.kw</span></div>
+          <div class="box"><b>الموقع الرسمي</b><a class="ltr" href="https://edc.org.kw/" target="_blank" rel="noopener" style="color:var(--brand)">edc.org.kw</a></div>
+        </div>
+      </div>
+    </div>
+  </section>
+</main>
+
+<footer>
+  <div class="wrap">
+    <strong>نبراس</strong>
+    <span>منصتك الموثوقة لاستكشاف قيم الإسلام، أحكامه، ورسالته الإنسانية باللغة التي تفضلها. نحن هنا لنمنحك مساحة آمنة للإجابة عن تساؤلاتك عبر قنوات تواصل مباشرة وفرق عمل متعددة اللغات.</span>
+  </div>
+</footer>
+
+
+</div>
+<div class="view" id="v-ar-quran" hidden>
+
+<div class="heroband">
+<div class="langbar"><div class="wrap lb">
+  <span class="lb-l"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" aria-hidden="true"><circle cx="12" cy="12" r="9"/><path d="M3 12h18M12 3c3 3.2 3 14.8 0 18M12 3c-3 3.2-3 14.8 0 18"/></svg>اللغات</span>
+  <ul><li><span class="lg on" aria-current="true">العربية</span></li><li><a class="lg" href="#en-quran" data-view="en-quran">English</a></li><li><span class="lg" aria-disabled="true" title="قريبًا">Français</span></li><li><span class="lg" aria-disabled="true" title="قريبًا">Deutsch</span></li><li><span class="lg" aria-disabled="true" title="قريبًا">اردو</span></li><li><span class="lg" aria-disabled="true" title="قريبًا">Filipino</span></li><li><span class="lg" aria-disabled="true" title="قريبًا">हिन्दी</span></li></ul>
+  <span class="lb-s">باقي اللغات قريبًا</span>
+</div></div>
+  <div class="navbar"><div class="wrap nav">
+    <a class="brand" href="#ar" data-view="ar" aria-label="نبراس">
+      <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M9 3h6M10 3v2.5M14 3v2.5M7 9a5 5 0 0 1 10 0v6a5 5 0 0 1-10 0z"/><path d="M12 7v8M9.5 21h5"/></svg>
+      نبراس
+    </a>
+    <ul>
+      <li><a class="l" href="#ar" data-view="ar" data-go="ar-pillars">أركان الإسلام</a></li>
+      <li><a class="l" href="#ar" data-view="ar" data-go="ar-prayer">الصلاة</a></li>
+      <li><a class="l" href="#ar" data-view="ar" data-go="ar-start">أول خطواتك</a></li>
+      <li><a class="l" href="#ar" data-view="ar" data-go="ar-faq">أسئلة شائعة</a></li>
+      <li><a class="l on" href="#" data-go="ar-quran-top" aria-current="page">معجم القرآن</a></li>
+      <li><a class="l" href="#ar" data-view="ar" data-go="ar-channels">يوتيوب</a></li>
+      <li><a class="l" href="#ar" data-view="ar" data-go="ar-ask">اسأل</a></li>
+      <li><a class="l" href="https://edc.org.kw/" target="_blank" rel="noopener">الموقع الرسمي</a></li>
+    </ul>
+  </div></div>
+  <div class="wrap hero">
+    <h1>معجم القرآن الكريم</h1>
+    <p class="lead">معجم شامل للقرآن الكريم يضم سوره كلها من الفاتحة إلى الناس، ويتيح قراءة كل سورة مع أكثر من 50 ترجمة بمختلف لغات العالم.</p>
+    <div class="stats"><span class="stat">114 سورة</span><span class="stat">6,236 آية</span><span class="stat">86 مكية · 28 مدنية</span></div>
+  </div>
+</div>
+
+<div class="tools"><div class="wrap">
+  <input class="search" id="ar-quran-s" type="search" placeholder="ابحث باسم السورة أو رقمها" aria-label="ابحث عن سورة">
+  <div class="seg" role="group" aria-label="تصفية حسب النزول">
+    <button type="button" data-f="all" aria-pressed="true">الكل</button>
+    <button type="button" data-f="م" aria-pressed="false">مكية</button>
+    <button type="button" data-f="د" aria-pressed="false">مدنية</button>
+  </div>
+</div></div>
+
+<main id="ar-quran-top"><div class="wrap">
+  <p class="count" id="ar-quran-count"></p>
+  <ol class="grid" id="ar-quran-grid"></ol>
+  <p class="empty" id="ar-quran-empty">لا توجد سورة بهذا الاسم. جرّب كتابة الاسم بدون همزات أو بالرقم.</p>
+
+  <section class="langs">
+    <h2>ترجمات بلغات العالم</h2>
+    <p>تفتح كل سورة في قارئ يوفّر ترجمات بلغات كثيرة، منها:</p>
+    <div class="chips">
+      <span>English</span><span>Français</span><span>Español</span><span>Deutsch</span><span>Português</span><span>Italiano</span><span>Türkçe</span><span>Русский</span><span>中文</span><span>日本語</span><span>한국어</span><span>اردو</span><span>বাংলা</span><span>हिन्दी</span><span>فارسی</span><span>Bahasa Indonesia</span><span>Bahasa Melayu</span><span>Filipino</span><span>Kiswahili</span><span>Hausa</span><span>Shqip</span><span>Nederlands</span><span>Svenska</span><span>தமிழ்</span>
+    </div>
+    <p class="note">روابط السور تفتح قارئ القرآن على quran.com. اختر الترجمة من إعدادات القارئ هناك.</p>
+  </section>
+</div></main>
+
+
+</div>
+<div class="view" id="v-en" hidden>
+
+<div class="langbar"><div class="wrap lb">
+  <span class="lb-l"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" aria-hidden="true"><circle cx="12" cy="12" r="9"/><path d="M3 12h18M12 3c3 3.2 3 14.8 0 18M12 3c-3 3.2-3 14.8 0 18"/></svg>Languages</span>
+  <ul><li><a class="lg" href="#ar" data-view="ar">العربية</a></li><li><span class="lg on" aria-current="true">English</span></li><li><span class="lg" aria-disabled="true" title="Coming soon">Français</span></li><li><span class="lg" aria-disabled="true" title="Coming soon">Deutsch</span></li><li><span class="lg" aria-disabled="true" title="Coming soon">اردو</span></li><li><span class="lg" aria-disabled="true" title="Coming soon">Filipino</span></li><li><span class="lg" aria-disabled="true" title="Coming soon">हिन्दी</span></li></ul>
+  <span class="lb-s">More languages coming soon</span>
+</div></div>
+<header class="top">
+  <div class="wrap nav">
+    <a class="brand" href="#" data-go="en-top" aria-label="Nibras">
+      <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M9 3h6M10 3v2.5M14 3v2.5M7 9a5 5 0 0 1 10 0v6a5 5 0 0 1-10 0z"/><path d="M12 7v8M9.5 21h5"/></svg>
+      NIBRAS
+    </a>
+    <ul>
+      <li><a class="l" href="#" data-go="en-pillars">Five Pillars</a></li>
+      <li><a class="l" href="#" data-go="en-prayer">Prayer</a></li>
+      <li><a class="l" href="#" data-go="en-start">First Steps</a></li>
+      <li><a class="l" href="#" data-go="en-faq">FAQ</a></li>
+      <li><a class="l q" href="#en-quran" data-view="en-quran">Quran Lexicon</a></li>
+      <li><a class="l" href="#" data-go="en-channels">YouTube</a></li>
+      <li><a class="l" href="#" data-go="en-ask">Ask</a></li>
+      <li><a class="l" href="https://edc.org.kw/" target="_blank" rel="noopener">Official Website</a></li>
+    </ul>
+  </div>
+</header>
+
+<main id="en-top">
+  <div class="heroband">
+    <div class="wrap hero">
+      <div class="grid">
+        <div>
+          <p class="eyebrow">For seekers of truth and new Muslims</p>
+          <h1>Your private space to get to know <em>Islam</em> in your language</h1>
+          <p class="lead">Your comprehensive digital gateway to learning about the true religion of Islam and spreading the values of peace and tolerance. Browse our translated content, and contact us any time with your questions to receive knowledgeable and reliable answers.</p>
+          <div class="cta">
+            <a class="btn gold" href="#" data-go="en-pillars">Start here</a>
+            <a class="btn line" href="#" data-go="en-ask">Ask a question</a>
+          </div>
+        </div>
+        <aside class="shahada" aria-label="The declaration of faith">
+          <span class="star" aria-hidden="true"></span>
+          <div class="ar">أَشْهَدُ أَنْ لَا إِلَهَ إِلَّا اللَّهُ<br>وَأَشْهَدُ أَنَّ مُحَمَّدًا رَسُولُ اللَّهِ</div>
+          <span class="tr">I bear witness that there is no god but Allah, and I bear witness that Muhammad is the Messenger of Allah.</span>
+          <small>The Shahada. By declaring it sincerely, a person enters Islam.</small>
+        </aside>
+      </div>
+    </div>
+  </div>
+
+  <section id="en-pillars">
+    <div class="wrap">
+      <div class="head">
+        <p class="eyebrow">The foundation</p>
+        <h2>The Five Pillars of Islam</h2>
+        <p>These five acts form the practical structure of Islam. Faith comes first, and the acts of worship follow.</p>
+      </div>
+      <div class="pillars">
+        <article class="pillar"><div class="badge"><span>1</span></div><div class="ar">Shahada</div><h3>Declaration of faith</h3><p>Believing in one God with no partner, and that Muhammad ﷺ is His servant and messenger.</p></article>
+        <article class="pillar"><div class="badge"><span>2</span></div><div class="ar">Salah</div><h3>Prayer, five times a day</h3><p>A direct connection between the servant and his Lord. It organizes the day and keeps God in mind.</p></article>
+        <article class="pillar"><div class="badge"><span>3</span></div><div class="ar">Zakat</div><h3>The right of the poor in wealth</h3><p>Every year, a Muslim who is able gives a set portion of their wealth to those entitled to it.</p></article>
+        <article class="pillar"><div class="badge"><span>4</span></div><div class="ar">Sawm</div><h3>Fasting in Ramadan</h3><p>Abstaining from food and drink from dawn to sunset, to train the soul and give thanks to God.</p></article>
+        <article class="pillar"><div class="badge"><span>5</span></div><div class="ar">Hajj</div><h3>Pilgrimage to the Sacred House</h3><p>Once in a lifetime for those who are able, in Makkah.</p></article>
+      </div>
+    </div>
+  </section>
+
+  <section id="en-prayer" class="band">
+    <div class="wrap">
+      <div class="head">
+        <p class="eyebrow">Daily worship</p>
+        <h2>The five prayers and their units</h2>
+        <p>Prayer times change with the city and the season. Use your local calendar or a trusted app for exact times.</p>
+      </div>
+      <div class="table-wrap">
+        <table>
+          <thead><tr><th>Prayer</th><th>Time</th><th>Rak'ahs</th></tr></thead>
+          <tbody>
+            <tr><td class="n">Fajr</td><td>From true dawn until sunrise</td><td class="r">2</td></tr>
+            <tr><td class="n">Dhuhr</td><td>After the sun passes its zenith</td><td class="r">4</td></tr>
+            <tr><td class="n">Asr</td><td>When an object's shadow is about its own length</td><td class="r">4</td></tr>
+            <tr><td class="n">Maghrib</td><td>From sunset</td><td class="r">3</td></tr>
+            <tr><td class="n">Isha</td><td>After the red twilight fades</td><td class="r">4</td></tr>
+          </tbody>
+        </table>
+      </div>
+      <p class="note">Prayer is preceded by wudu: washing the hands, mouth, nose, face, and arms to the elbows, wiping the head, and washing the feet.</p>
+    </div>
+  </section>
+
+  <section id="en-start">
+    <div class="wrap">
+      <div class="head">
+        <p class="eyebrow">For new Muslims</p>
+        <h2>Your first steps after Islam</h2>
+        <p>You do not need to learn everything in a day. This is a simple order you can follow at your own pace.</p>
+      </div>
+      <ol class="steps">
+        <li><span class="no">1</span><div><h3>Say the Shahada and understand it</h3><p>With it you become a Muslim. It is enough to say it with conviction. No one needs to be present.</p></div></li>
+        <li><span class="no">2</span><div><h3>Learn wudu and prayer</h3><p>Start with Al-Fatiha and short surahs, pray with what you know, and add to your memorization over time.</p></div></li>
+        <li><span class="no">3</span><div><h3>Read about the life of the Prophet ﷺ</h3><p>His biography brings the rulings closer to the heart and shows you a practical example.</p></div></li>
+        <li><span class="no">4</span><div><h3>Find people who can help</h3><p>Look for a good friend or a nearby community to ask questions and pray with. Good company lightens the road.</p></div></li>
+        <li><span class="no">5</span><div><h3>Change step by step</h3><p>Islam is a religion of ease. Do not burden yourself beyond your ability, and ask people of knowledge about anything unclear.</p></div></li>
+      </ol>
+    </div>
+  </section>
+
+  <section id="en-langs" style="padding-top:0">
+    <div class="wrap">
+      <div class="head">
+        <p class="eyebrow">Languages</p>
+        <h2>Content in your language</h2>
+        <p>This page is in English. The Arabic site is complete. Other languages are being prepared.</p>
+      </div>
+      <div class="langs">
+        <a class="chip" href="#ar" data-view="ar" style="text-decoration:none">العربية</a>
+        <span class="chip on">English</span>
+        <span class="chip soon">Français · soon</span>
+        <span class="chip soon">Deutsch · soon</span>
+        <span class="chip soon">اردو · soon</span>
+        <span class="chip soon">Filipino · soon</span>
+        <span class="chip soon">हिन्दी · soon</span>
+      </div>
+    </div>
+  </section>
+
+  <section id="en-faq" style="padding-top:0">
+    <div class="wrap">
+      <div class="head"><p class="eyebrow">FAQ</p><h2>Questions everyone asks</h2></div>
+      <div style="max-width:48em">
+        <details><summary>Do I need a person or a special place to enter Islam?</summary><p>No. A person enters Islam by sincerely declaring the Shahada with knowledge and conviction. It is good to connect with Muslims so you can learn from them.</p></details>
+        <details><summary>Do I have to change my name?</summary><p>You do not need to change your name if it has a good meaning and does not conflict with Islam. If you want a new name, you are free to take one.</p></details>
+        <details><summary>Must I learn Arabic?</summary><p>Mastering Arabic is not required to enter Islam. A Muslim needs to memorize what is required for a valid prayer in Arabic, and can understand the meanings in their own language.</p></details>
+        <details><summary>What about my family and friends who are not Muslim?</summary><p>Islam commands kindness to parents and good treatment of all people, even when their religions differ.</p></details>
+        <details><summary>I made many mistakes in the past. Will I be accepted?</summary><p>Islam wipes out what came before it. The door of repentance is open to every person, whatever their past.</p></details>
+      </div>
+    </div>
+  </section>
+
+  <section id="en-channels" style="padding-top:0">
+    <div class="wrap">
+      <div class="head"><p class="eyebrow">Our channels</p><h2>Follow us on YouTube</h2><p>Videos that introduce Islam.</p></div>
+      <div class="yt">
+        <a href="https://www.youtube.com/@Knowislam77?sub_confirmation=1" target="_blank" rel="noopener"><span class="cover"><img src="img/c1.jpg" alt="Know Islam channel cover" loading="lazy"><span class="ov"><span class="nm">Know Islam</span><span class="hd">@Knowislam77</span></span></span><span class="subbtn"><svg viewBox="0 0 28 20" aria-hidden="true"><rect width="28" height="20" rx="6" fill="#fff"/><path d="M11 5.5v9l8-4.5z" fill="#ff0000"/></svg><span>Subscribe</span></span></a>
+        <a href="https://www.youtube.com/@BestIslamicvideo77?sub_confirmation=1" target="_blank" rel="noopener"><span class="cover"><img src="img/c2.jpg" alt="Best Islamic Video channel cover" loading="lazy"><span class="ov"><span class="nm">Best Islamic Video</span><span class="hd">@BestIslamicvideo77</span></span></span><span class="subbtn"><svg viewBox="0 0 28 20" aria-hidden="true"><rect width="28" height="20" rx="6" fill="#fff"/><path d="M11 5.5v9l8-4.5z" fill="#ff0000"/></svg><span>Subscribe</span></span></a>
+        <a href="https://www.youtube.com/@IslamStudio77?sub_confirmation=1" target="_blank" rel="noopener"><span class="cover"><img src="img/c3.jpg" alt="Islam Studio channel cover" loading="lazy"><span class="ov"><span class="nm">Islam Studio</span><span class="hd">@IslamStudio77</span></span></span><span class="subbtn"><svg viewBox="0 0 28 20" aria-hidden="true"><rect width="28" height="20" rx="6" fill="#fff"/><path d="M11 5.5v9l8-4.5z" fill="#ff0000"/></svg><span>Subscribe</span></span></a>
+      </div>
+    </div>
+  </section>
+
+  <section id="en-ask" style="padding-top:0">
+    <div class="wrap">
+      <div class="head"><p class="eyebrow">Contact</p><h2>Ask your question</h2><p>Write your question to prepare your message, then copy it and send it by email or phone.</p></div>
+      <div class="ask">
+        <form id="en-askForm">
+          <label for="en-nm">Your name (optional)<input id="en-nm" autocomplete="name"></label>
+          <label for="en-lg">Your language<input id="en-lg" placeholder="For example: English"></label>
+          <label for="en-q">Your question<textarea id="en-q" required></textarea></label>
+          <button class="btn" type="submit">Prepare message</button>
+          <div class="out" id="en-out" aria-live="polite">
+            <pre id="en-msg"></pre>
+            <button class="btn ghost" type="button" id="en-copy">Copy message</button>
+          </div>
+        </form>
+        <div class="contact">
+          <div class="box"><b>Address</b>Kuwait – Kuwait City – Fahad Al-Salem Street – Mulla Saleh Mosque – Basement</div>
+          <div class="box"><b>Call center</b><span class="ltr">009651800082</span></div>
+          <div class="box"><b>Phone</b><span class="ltr">009651800082</span> &nbsp;·&nbsp; <span class="ltr">0096597288044</span></div>
+          <div class="box"><b>Representative</b><span class="ltr">0096597288044</span></div>
+          <div class="box"><b>Email</b><span class="ltr">info@edc.org.kw</span></div>
+          <div class="box"><b>Official website</b><a class="ltr" href="https://edc.org.kw/" target="_blank" rel="noopener" style="color:var(--brand)">edc.org.kw</a></div>
+        </div>
+      </div>
+    </div>
+  </section>
+</main>
+
+<footer>
+  <div class="wrap">
+    <strong>NIBRAS</strong>
+    <span>Your trusted platform for exploring the values of Islam, its rulings, and its humane message, in the language you prefer. We are here to give you a safe space to answer your questions through direct communication channels and multilingual teams.</span>
+  </div>
+</footer>
+
+
+</div>
+<div class="view" id="v-en-quran" hidden>
+<div class="langbar"><div class="wrap lb">
+  <span class="lb-l"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" aria-hidden="true"><circle cx="12" cy="12" r="9"/><path d="M3 12h18M12 3c3 3.2 3 14.8 0 18M12 3c-3 3.2-3 14.8 0 18"/></svg>Languages</span>
+  <ul><li><a class="lg" href="#ar-quran" data-view="ar-quran">العربية</a></li><li><span class="lg on" aria-current="true">English</span></li><li><span class="lg" aria-disabled="true" title="Coming soon">Français</span></li><li><span class="lg" aria-disabled="true" title="Coming soon">Deutsch</span></li><li><span class="lg" aria-disabled="true" title="Coming soon">اردو</span></li><li><span class="lg" aria-disabled="true" title="Coming soon">Filipino</span></li><li><span class="lg" aria-disabled="true" title="Coming soon">हिन्दी</span></li></ul>
+  <span class="lb-s">More languages coming soon</span>
+</div></div>
+<div class="heroband">
+  <div class="navbar"><div class="wrap nav">
+    <a class="brand" href="#en" data-view="en" aria-label="Nibras"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M9 3h6M10 3v2.5M14 3v2.5M7 9a5 5 0 0 1 10 0v6a5 5 0 0 1-10 0z"/><path d="M12 7v8M9.5 21h5"/></svg>NIBRAS</a>
+    <ul>
+      <li><a class="l" href="#en" data-view="en" data-go="en-pillars">Five Pillars</a></li>
+      <li><a class="l" href="#en" data-view="en" data-go="en-prayer">Prayer</a></li>
+      <li><a class="l" href="#en" data-view="en" data-go="en-start">First Steps</a></li>
+      <li><a class="l" href="#en" data-view="en" data-go="en-faq">FAQ</a></li>
+      <li><a class="l on q" href="#" data-go="en-quran-top" aria-current="page">Quran Lexicon</a></li>
+      <li><a class="l" href="#en" data-view="en" data-go="en-channels">YouTube</a></li>
+      <li><a class="l" href="#en" data-view="en" data-go="en-ask">Ask</a></li>
+      <li><a class="l" href="https://edc.org.kw/" target="_blank" rel="noopener">Official Website</a></li>
+    </ul></div></div>
+  <div class="wrap hero">
+    <h1>The Holy Quran Lexicon</h1>
+    <p class="lead">A comprehensive lexicon of the Holy Quran with all of its surahs, from Al-Fatihah to An-Nas. Each surah opens in a reader that offers translations in many languages of the world, more than 50 in all.</p>
+    <div class="stats"><span class="stat">114 surahs</span><span class="stat">6,236 verses</span><span class="stat">86 Meccan · 28 Medinan</span></div>
+  </div>
+</div>
+<div class="tools"><div class="wrap">
+  <input class="search" id="en-quran-s" type="search" placeholder="Search by surah name or number" aria-label="Search for a surah">
+  <div class="seg" role="group" aria-label="Filter by place of revelation">
+    <button type="button" data-f="all" aria-pressed="true">All</button>
+    <button type="button" data-f="M" aria-pressed="false">Meccan</button>
+    <button type="button" data-f="D" aria-pressed="false">Medinan</button>
+  </div>
+</div></div>
+<main id="en-quran-top"><div class="wrap">
+  <p class="count" id="en-quran-count"></p>
+  <ol class="grid" id="en-quran-grid"></ol>
+  <p class="empty" id="en-quran-empty">No surah matches that search. Try a shorter name or the surah number.</p>
+  <section class="langs">
+    <h2>Translations in the world's languages</h2>
+    <p>Each surah opens in a reader that offers translations in many languages, including:</p>
+    <div class="chips"><span>English</span><span>Français</span><span>Español</span><span>Deutsch</span><span>Português</span><span>Italiano</span><span>Türkçe</span><span>Русский</span><span>中文</span><span>日本語</span><span>한국어</span><span>اردو</span><span>বাংলা</span><span>हिन्दी</span><span>فارسی</span><span>Bahasa Indonesia</span><span>Bahasa Melayu</span><span>Filipino</span><span>Kiswahili</span><span>Hausa</span><span>Shqip</span><span>Nederlands</span><span>Svenska</span><span>தமிழ்</span></div>
+    <p class="note">Surah links open the Quran reader on quran.com. Choose your translation in the reader's settings there.</p>
+  </section>
+</div></main>
+
+</div>
+<script>
+(function(){
+  
+  var form=document.getElementById('ar-askForm'),out=document.getElementById('ar-out'),msg=document.getElementById('ar-msg'),copy=document.getElementById('ar-copy');
+  form.addEventListener('submit',function(e){
+    e.preventDefault();
+    var n=document.getElementById('ar-nm').value.trim(),l=document.getElementById('ar-lg').value.trim(),q=document.getElementById('ar-q').value.trim();
+    if(!q)return;
+    msg.textContent='السلام عليكم،\n'+(n?'اسمي '+n+'.\n':'')+(l?'لغتي: '+l+'.\n':'')+'سؤالي: '+q;
+    out.classList.add('on');
+  });
+  copy.addEventListener('click',function(){
+    var t=msg.textContent;
+    function fallback(){var r=document.createRange();r.selectNodeContents(msg);var s=getSelection();s.removeAllRanges();s.addRange(r);copy.textContent='حدّد النص، انسخه يدويًا'}
+    try{navigator.clipboard.writeText(t).then(function(){copy.textContent='تم النسخ'},fallback)}catch(x){fallback()}
+  });
+})();
+</script>
+<script>
+(function(){
+  
+  var D=[["الفاتحة",7,"م"],["البقرة",286,"د"],["آل عمران",200,"د"],["النساء",176,"د"],["المائدة",120,"د"],["الأنعام",165,"م"],["الأعراف",206,"م"],["الأنفال",75,"د"],["التوبة",129,"د"],["يونس",109,"م"],["هود",123,"م"],["يوسف",111,"م"],["الرعد",43,"د"],["إبراهيم",52,"م"],["الحجر",99,"م"],["النحل",128,"م"],["الإسراء",111,"م"],["الكهف",110,"م"],["مريم",98,"م"],["طه",135,"م"],["الأنبياء",112,"م"],["الحج",78,"د"],["المؤمنون",118,"م"],["النور",64,"د"],["الفرقان",77,"م"],["الشعراء",227,"م"],["النمل",93,"م"],["القصص",88,"م"],["العنكبوت",69,"م"],["الروم",60,"م"],["لقمان",34,"م"],["السجدة",30,"م"],["الأحزاب",73,"د"],["سبأ",54,"م"],["فاطر",45,"م"],["يس",83,"م"],["الصافات",182,"م"],["ص",88,"م"],["الزمر",75,"م"],["غافر",85,"م"],["فصلت",54,"م"],["الشورى",53,"م"],["الزخرف",89,"م"],["الدخان",59,"م"],["الجاثية",37,"م"],["الأحقاف",35,"م"],["محمد",38,"د"],["الفتح",29,"د"],["الحجرات",18,"د"],["ق",45,"م"],["الذاريات",60,"م"],["الطور",49,"م"],["النجم",62,"م"],["القمر",55,"م"],["الرحمن",78,"د"],["الواقعة",96,"م"],["الحديد",29,"د"],["المجادلة",22,"د"],["الحشر",24,"د"],["الممتحنة",13,"د"],["الصف",14,"د"],["الجمعة",11,"د"],["المنافقون",11,"د"],["التغابن",18,"د"],["الطلاق",12,"د"],["التحريم",12,"د"],["الملك",30,"م"],["القلم",52,"م"],["الحاقة",52,"م"],["المعارج",44,"م"],["نوح",28,"م"],["الجن",28,"م"],["المزمل",20,"م"],["المدثر",56,"م"],["القيامة",40,"م"],["الإنسان",31,"د"],["المرسلات",50,"م"],["النبأ",40,"م"],["النازعات",46,"م"],["عبس",42,"م"],["التكوير",29,"م"],["الانفطار",19,"م"],["المطففين",36,"م"],["الانشقاق",25,"م"],["البروج",22,"م"],["الطارق",17,"م"],["الأعلى",19,"م"],["الغاشية",26,"م"],["الفجر",30,"م"],["البلد",20,"م"],["الشمس",15,"م"],["الليل",21,"م"],["الضحى",11,"م"],["الشرح",8,"م"],["التين",8,"م"],["العلق",19,"م"],["القدر",5,"م"],["البينة",8,"د"],["الزلزلة",8,"د"],["العاديات",11,"م"],["القارعة",11,"م"],["التكاثر",8,"م"],["العصر",3,"م"],["الهمزة",9,"م"],["الفيل",5,"م"],["قريش",4,"م"],["الماعون",7,"م"],["الكوثر",3,"م"],["الكافرون",6,"م"],["النصر",3,"د"],["المسد",5,"م"],["الإخلاص",4,"م"],["الفلق",5,"م"],["الناس",6,"م"]];
+  var grid=document.getElementById('ar-quran-grid'),cnt=document.getElementById('ar-quran-count'),emp=document.getElementById('ar-quran-empty'),inp=document.getElementById('ar-quran-s');
+  var filt='all';
+  function ar(n){return String(n).replace(/\d/g,function(d){return '0123456789'[d]})}
+  function norm(t){return t.replace(/[\u064B-\u0652\u0640]/g,'').replace(/[أإآٱ]/g,'ا').replace(/ة/g,'ه').replace(/ى/g,'ي').replace(/^ال/,'').trim()}
+  function render(){
+    var q=inp.value.trim(),nq=norm(q.replace(/^سورة\s*/,'')),h='',n=0;
+    D.forEach(function(r,i){
+      var no=i+1;
+      if(filt!=='all'&&r[2]!==filt)return;
+      if(q){var okNum=/^\d+$/.test(q)&&String(no)===q;if(!okNum&&norm(r[0]).indexOf(nq)<0&&norm('ال'+r[0]).indexOf(nq)<0)return}
+      n++;
+      h+='<li><a href="https://quran.com/'+no+'" target="_blank" rel="noopener"><span class="no"><span>'+ar(no)+'</span></span><span><span class="nm">سورة '+r[0]+'</span><span class="meta"><span class="tag '+(r[2]==='م'?'m':'d')+'">'+(r[2]==='م'?'مكية':'مدنية')+'</span><span>'+ar(r[1])+' آية</span></span></span></a></li>';
+    });
+    grid.innerHTML=h;
+    cnt.textContent=(q||filt!=='all')?('عدد النتائج: '+ar(n)):'جميع سور القرآن الكريم بترتيب المصحف';
+    emp.className='empty'+(n?'':' on');
+  }
+  inp.addEventListener('input',render);
+  document.querySelectorAll('#v-ar-quran .seg button').forEach(function(b){
+    b.addEventListener('click',function(){
+      filt=b.getAttribute('data-f');
+      document.querySelectorAll('#v-ar-quran .seg button').forEach(function(x){x.setAttribute('aria-pressed',x===b?'true':'false')});
+      render();
+    });
+  });
+  render();
+})();
+</script>
+<script>
+(function(){
+  
+  var form=document.getElementById('en-askForm'),out=document.getElementById('en-out'),msg=document.getElementById('en-msg'),copy=document.getElementById('en-copy');
+  form.addEventListener('submit',function(e){
+    e.preventDefault();
+    var n=document.getElementById('en-nm').value.trim(),l=document.getElementById('en-lg').value.trim(),q=document.getElementById('en-q').value.trim();
+    if(!q)return;
+    msg.textContent='Peace be upon you,\n'+(n?'My name is '+n+'.\n':'')+(l?'My language: '+l+'.\n':'')+'My question: '+q;
+    out.classList.add('on');
+  });
+  copy.addEventListener('click',function(){
+    var t=msg.textContent;
+    function fallback(){var r=document.createRange();r.selectNodeContents(msg);var s=getSelection();s.removeAllRanges();s.addRange(r);copy.textContent='Select the text and copy it'}
+    try{navigator.clipboard.writeText(t).then(function(){copy.textContent='Copied'},fallback)}catch(x){fallback()}
+  });
+})();
+</script>
+<script>
+(function(){
+  
+  var D=[["Al-Fatihah","الفاتحة",7,"M"],["Al-Baqarah","البقرة",286,"D"],["Ali 'Imran","آل عمران",200,"D"],["An-Nisa","النساء",176,"D"],["Al-Ma'idah","المائدة",120,"D"],["Al-An'am","الأنعام",165,"M"],["Al-A'raf","الأعراف",206,"M"],["Al-Anfal","الأنفال",75,"D"],["At-Tawbah","التوبة",129,"D"],["Yunus","يونس",109,"M"],["Hud","هود",123,"M"],["Yusuf","يوسف",111,"M"],["Ar-Ra'd","الرعد",43,"D"],["Ibrahim","إبراهيم",52,"M"],["Al-Hijr","الحجر",99,"M"],["An-Nahl","النحل",128,"M"],["Al-Isra","الإسراء",111,"M"],["Al-Kahf","الكهف",110,"M"],["Maryam","مريم",98,"M"],["Taha","طه",135,"M"],["Al-Anbiya","الأنبياء",112,"M"],["Al-Hajj","الحج",78,"D"],["Al-Mu'minun","المؤمنون",118,"M"],["An-Nur","النور",64,"D"],["Al-Furqan","الفرقان",77,"M"],["Ash-Shu'ara","الشعراء",227,"M"],["An-Naml","النمل",93,"M"],["Al-Qasas","القصص",88,"M"],["Al-'Ankabut","العنكبوت",69,"M"],["Ar-Rum","الروم",60,"M"],["Luqman","لقمان",34,"M"],["As-Sajdah","السجدة",30,"M"],["Al-Ahzab","الأحزاب",73,"D"],["Saba","سبأ",54,"M"],["Fatir","فاطر",45,"M"],["Ya-Sin","يس",83,"M"],["As-Saffat","الصافات",182,"M"],["Sad","ص",88,"M"],["Az-Zumar","الزمر",75,"M"],["Ghafir","غافر",85,"M"],["Fussilat","فصلت",54,"M"],["Ash-Shuraa","الشورى",53,"M"],["Az-Zukhruf","الزخرف",89,"M"],["Ad-Dukhan","الدخان",59,"M"],["Al-Jathiyah","الجاثية",37,"M"],["Al-Ahqaf","الأحقاف",35,"M"],["Muhammad","محمد",38,"D"],["Al-Fath","الفتح",29,"D"],["Al-Hujurat","الحجرات",18,"D"],["Qaf","ق",45,"M"],["Adh-Dhariyat","الذاريات",60,"M"],["At-Tur","الطور",49,"M"],["An-Najm","النجم",62,"M"],["Al-Qamar","القمر",55,"M"],["Ar-Rahman","الرحمن",78,"D"],["Al-Waqi'ah","الواقعة",96,"M"],["Al-Hadid","الحديد",29,"D"],["Al-Mujadila","المجادلة",22,"D"],["Al-Hashr","الحشر",24,"D"],["Al-Mumtahanah","الممتحنة",13,"D"],["As-Saff","الصف",14,"D"],["Al-Jumu'ah","الجمعة",11,"D"],["Al-Munafiqun","المنافقون",11,"D"],["At-Taghabun","التغابن",18,"D"],["At-Talaq","الطلاق",12,"D"],["At-Tahrim","التحريم",12,"D"],["Al-Mulk","الملك",30,"M"],["Al-Qalam","القلم",52,"M"],["Al-Haqqah","الحاقة",52,"M"],["Al-Ma'arij","المعارج",44,"M"],["Nuh","نوح",28,"M"],["Al-Jinn","الجن",28,"M"],["Al-Muzzammil","المزمل",20,"M"],["Al-Muddaththir","المدثر",56,"M"],["Al-Qiyamah","القيامة",40,"M"],["Al-Insan","الإنسان",31,"D"],["Al-Mursalat","المرسلات",50,"M"],["An-Naba","النبأ",40,"M"],["An-Nazi'at","النازعات",46,"M"],["'Abasa","عبس",42,"M"],["At-Takwir","التكوير",29,"M"],["Al-Infitar","الانفطار",19,"M"],["Al-Mutaffifin","المطففين",36,"M"],["Al-Inshiqaq","الانشقاق",25,"M"],["Al-Buruj","البروج",22,"M"],["At-Tariq","الطارق",17,"M"],["Al-A'la","الأعلى",19,"M"],["Al-Ghashiyah","الغاشية",26,"M"],["Al-Fajr","الفجر",30,"M"],["Al-Balad","البلد",20,"M"],["Ash-Shams","الشمس",15,"M"],["Al-Layl","الليل",21,"M"],["Ad-Duha","الضحى",11,"M"],["Ash-Sharh","الشرح",8,"M"],["At-Tin","التين",8,"M"],["Al-'Alaq","العلق",19,"M"],["Al-Qadr","القدر",5,"M"],["Al-Bayyinah","البينة",8,"D"],["Az-Zalzalah","الزلزلة",8,"D"],["Al-'Adiyat","العاديات",11,"M"],["Al-Qari'ah","القارعة",11,"M"],["At-Takathur","التكاثر",8,"M"],["Al-'Asr","العصر",3,"M"],["Al-Humazah","الهمزة",9,"M"],["Al-Fil","الفيل",5,"M"],["Quraysh","قريش",4,"M"],["Al-Ma'un","الماعون",7,"M"],["Al-Kawthar","الكوثر",3,"M"],["Al-Kafirun","الكافرون",6,"M"],["An-Nasr","النصر",3,"D"],["Al-Masad","المسد",5,"M"],["Al-Ikhlas","الإخلاص",4,"M"],["Al-Falaq","الفلق",5,"M"],["An-Nas","الناس",6,"M"]];
+  var grid=document.getElementById('en-quran-grid'),cnt=document.getElementById('en-quran-count'),emp=document.getElementById('en-quran-empty'),inp=document.getElementById('en-quran-s'),filt='all';
+  function norm(t){return t.toLowerCase().replace(/['’`\-\s]/g,'').replace(/^(al|an|ar|as|ash|at|az|ad|adh)/,'')}
+  function render(){
+    var q=inp.value.trim(),nq=norm(q.replace(/^surah\s*/i,'')),h='',n=0;
+    D.forEach(function(r,i){
+      var no=i+1;
+      if(filt!=='all'&&r[3]!==filt)return;
+      if(q){var okNum=/^\d+$/.test(q)&&String(no)===q;if(!okNum&&norm(r[0]).indexOf(nq)<0&&r[1].indexOf(q)<0)return}
+      n++;
+      h+='<li><a href="https://quran.com/'+no+'" target="_blank" rel="noopener"><span class="no"><span>'+no+'</span></span><span><span class="nm">'+r[0]+'</span><span class="ar">سورة '+r[1]+'</span><span class="meta"><span class="tag '+(r[3]==='M'?'m':'d')+'">'+(r[3]==='M'?'Meccan':'Medinan')+'</span><span>'+r[2]+' verses</span></span></span></a></li>';
+    });
+    grid.innerHTML=h;
+    cnt.textContent=(q||filt!=='all')?('Results: '+n):'All surahs of the Holy Quran, in the order of the Mushaf';
+    emp.className='empty'+(n?'':' on');
+  }
+  inp.addEventListener('input',render);
+  document.querySelectorAll('#v-en-quran .seg button').forEach(function(b){
+    b.addEventListener('click',function(){
+      filt=b.getAttribute('data-f');
+      document.querySelectorAll('#v-en-quran .seg button').forEach(function(x){x.setAttribute('aria-pressed',x===b?'true':'false')});
+      render();
+    });
+  });
+  render();
+})();
+</script>
+<script>
+(function(){
+  var views=['ar','ar-quran','en','en-quran'],cur='ar';
+  function show(v,noHash){
+    if(views.indexOf(v)<0)v='ar';
+    views.forEach(function(x){
+      document.getElementById('v-'+x).hidden=(x!==v);
+      document.getElementById('st-'+x).media=(x===v)?'all':'not all';
+    });
+    var en=v.indexOf('en')===0;
+    document.documentElement.dir=en?'ltr':'rtl';document.documentElement.lang=en?'en':'ar';
+    document.title=en?'Nibras':'نبراس';
+    var changed=(v!==cur);cur=v;
+    if(!noHash&&location.hash!=='#'+v){try{location.hash=v}catch(e){}}
+    if(changed)window.scrollTo(0,0);
+  }
+  document.addEventListener('click',function(e){
+    var a=e.target.closest&&e.target.closest('a[data-view],a[data-go]');
+    if(!a)return;
+    e.preventDefault();
+    var v=a.getAttribute('data-view'),g=a.getAttribute('data-go');
+    if(v&&v!==cur)show(v);
+    if(g)setTimeout(function(){var el=document.getElementById(g);if(el)el.scrollIntoView({behavior:'smooth',block:'start'})},40);
+  });
+  window.addEventListener('hashchange',function(){var h=location.hash.replace('#','');if(views.indexOf(h)>=0&&h!==cur)show(h,true)});
+  var h0=location.hash.replace('#','');
+  show(views.indexOf(h0)>=0?h0:'ar',true);
+})();
+</script>
+
+</body></html>
